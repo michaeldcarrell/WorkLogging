@@ -111,7 +111,6 @@ let hourController = (function(UICtrl) {
                 option.textContent = newOption;
                 option.value = newOption;
                 dropDown.appendChild(option);
-                console.log(data[rows_built]['hour_type_name'])
             }
         })
     };

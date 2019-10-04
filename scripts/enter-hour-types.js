@@ -27,7 +27,10 @@ let controller = (function(hourCtrl, UICtrl) {
         fetch(url, {
             method: 'post',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + document.cookie,
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Access-Control-Allow-Credentials': 'true'
             },
             body: JSON.stringify(input)
         }).then(function(res) {
@@ -59,7 +62,15 @@ let controller = (function(hourCtrl, UICtrl) {
     let initHourTypeTable = function() {
         let fetch_hour_types = async () => {
             let url = 'http://hour-logging-api.herokuapp.com/hour_types';
-            fetch(url).then(
+            fetch(url, {
+                method: 'get',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + document.cookie,
+                    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                    'Access-Control-Allow-Credentials': 'true'
+                }
+            }).then(
                 (res) => res.json()
             ).then(function(data) {
                 for (let rows_built = 0; rows_built < data.length; rows_built++) {
