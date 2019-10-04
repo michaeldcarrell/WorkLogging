@@ -94,7 +94,7 @@ if (current_page === 'enter-hours.html') {
 
     let hourController = (function(hourCtrl, UICtrl) {
 
-        let initHourTable = async () => {
+        let initHourTable = async (res, req) => {
             let url = 'https://hour-logging-api.herokuapp.com/hours';
             fetch(url, {
                 method: 'get',
@@ -111,6 +111,7 @@ if (current_page === 'enter-hours.html') {
                     UICtrl.insertNewRowsHours(data[rows_built])
                 }
             }).catch(function(e){
+                console.log(req);
                 console.log(e)
             })
         };
