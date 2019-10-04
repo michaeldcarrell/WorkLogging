@@ -118,4 +118,4 @@ let hourController = (function(hourCtrl, UICtrl) {
         initHourTypesDD();
     }();
 
-})(hourController, hourUIController);
+})(hourUIController);
