@@ -1,3 +1,6 @@
+let current_url = document.URL.split('/');
+let domain_url = current_url[current_url.length - 1];
+
 let loginController = (function() {
 
 })();
@@ -28,7 +31,8 @@ let controller = (function(loginCtrl, UICtrl) {
             (res) => res.json()
         ).then(function (data){
             document.cookie = data['token'];
-            console.log(document.cookie)
+            console.log(document.cookie);
+            document.location.href = domain_url + 'enter-hours'
         }).catch(function(e) {
             console.log(e)
         });

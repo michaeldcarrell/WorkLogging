@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="resources/css/style.css">
     <meta charset="UTF-8">
-    <title>Hour Entry</title>
+    <title>Add Hour Types</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -12,7 +12,6 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <!--            <div class="collapse navbar-collapse mr-auto" id="navbarSupportedContent">-->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
@@ -22,7 +21,7 @@
                 <a class="nav-link" href="enter-hours.html">Add Hours</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">Add Hour Types</a>
+                <a class="nav-link" href="enter-hour-types.html">Add Hour Types</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="login.html">Login</a>
@@ -30,6 +29,24 @@
         </ul>
     </div>
 </nav>
+<div class="modal fade" id="hourTypeSubmissionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Hour Type Added!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>{} was added</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container-fluid form-container">
     <div class="row">
         <div class="form-group col-3">
@@ -37,7 +54,7 @@
             <input type="text" class="form-unit form-control" id="inpt-hour-types">
         </div>
         <div class="form-group col btn-submit-hours">
-            <button type="submit" class="btn btn-dark">Submit</button>
+            <button type="submit" class="btn btn-dark" data-toggle="modal" data-target="#hourTypeSubmissionModal">Submit</button>
         </div>
     </div>
 </div>
