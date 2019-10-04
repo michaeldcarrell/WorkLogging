@@ -31,7 +31,7 @@ let hourUIController = (function() {
     }
 })();
 
-let hourController = (function(hourCtrl, UICtrl) {
+let hourController = (function(UICtrl) {
 
     let ctrlAddHour = function() {
         let input = UICtrl.getHourInputs();
@@ -39,7 +39,10 @@ let hourController = (function(hourCtrl, UICtrl) {
         fetch(url, {
             method: 'post',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + document.cookie,
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Access-Control-Allow-Credentials': 'true'
             },
             body: JSON.stringify(input)
         }).then(function(res) {
