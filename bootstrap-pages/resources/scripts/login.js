@@ -29,7 +29,7 @@ let controller = (function(loginCtrl, UICtrl) {
         ).then(function (data){
             document.cookie = data['token'];
             console.log(document.cookie);
-            console.log(domain_url);
+
             document.location.href = 'enter-hours'
         }).catch(function(e) {
             console.log(e)
