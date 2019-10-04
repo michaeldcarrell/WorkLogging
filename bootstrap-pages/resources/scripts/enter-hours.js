@@ -50,7 +50,6 @@ let hourController = (function(UICtrl) {
         }).catch(function(e) {
             console.log(e)
         });
-        console.log(input);
     };
 
     document.querySelector('.submit-input').addEventListener('click', function(event) {
@@ -82,7 +81,6 @@ let hourController = (function(UICtrl) {
         }).then(
             (res) => res.json()
         ).then(function (data) {
-            console.log(data);
             for (let rows_built = 0; rows_built < data.length; rows_built++) {
                 UICtrl.insertNewRowsHours(data[rows_built])
             }
