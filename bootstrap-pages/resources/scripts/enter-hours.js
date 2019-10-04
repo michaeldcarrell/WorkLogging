@@ -23,7 +23,7 @@ let hourUIController = (function() {
             let hours = row.insertCell(3);
             let notes = row.insertCell(4);
             console.log(hourInputs['_id']);
-            console.log(hourInputs['hours_completed_on'].slice(0, 10);
+            console.log(hourInputs['hours_completed_on'].slice(0, 10));
             console.log(hourInputs['hour_type_name']);
             console.log(hourInputs['hours']);
             console.log(hourInputs['notes']);
