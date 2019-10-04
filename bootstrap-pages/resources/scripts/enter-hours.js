@@ -14,7 +14,6 @@ let hourUIController = (function() {
             }
         },
         insertNewRowsHours: function(hourInputs) {
-            console.log(hourInputs);
             let currentHourTable = document.getElementById("hour-table");
             let row = currentHourTable.insertRow(1);
             let id = row.insertCell(0);
@@ -22,11 +21,6 @@ let hourUIController = (function() {
             let type = row.insertCell(2);
             let hours = row.insertCell(3);
             let notes = row.insertCell(4);
-            console.log(hourInputs['_id']);
-            console.log(hourInputs['hours_completed_on'].slice(0, 10));
-            console.log(hourInputs['hour_type_name']);
-            console.log(hourInputs['hours']);
-            console.log(hourInputs['notes']);
             id.innerHTML = hourInputs['_id'];
             date.innerHTML = hourInputs['hours_completed_on'].slice(0, 10);
             type.innerHTML = hourInputs['hour_type_name'];
