@@ -32,7 +32,7 @@ let controller = (function(loginCtrl, UICtrl) {
 
             document.location.href = 'enter-hours'
         }).catch(function(e) {
-            console.log(e)
+
         });
         console.log(input);
     };

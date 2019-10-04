@@ -14,6 +14,7 @@ let hourUIController = (function() {
             }
         },
         insertNewRowsHours: function(hourInputs) {
+            console.log(hourInputs);
             let currentHourTable = document.getElementById("hour-table");
             let row = currentHourTable.insertRow(1);
             let id = row.insertCell(0);
