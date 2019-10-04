@@ -1,7 +1,6 @@
-let hourController = (function() {
-
-})();
-
+// let hourController = (function() {
+//
+// })();
 let hourUIController = (function() {
     return {
         getHourInputs: function() {
