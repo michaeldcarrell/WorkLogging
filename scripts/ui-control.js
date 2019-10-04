@@ -111,7 +111,6 @@ if (current_page === 'enter-hours.html') {
                     UICtrl.insertNewRowsHours(data[rows_built])
                 }
             }).catch(function(e){
-                console.log(req);
                 console.log(e)
             })
         };

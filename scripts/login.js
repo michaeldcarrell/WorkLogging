@@ -24,8 +24,11 @@ let controller = (function(loginCtrl, UICtrl) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(input)
-        }).then(function(res) {
-            console.log(res.json())
+        }).then(
+            (res) => res.json()
+        ).then(function (data){
+            document.cookie = data['token'];
+            console.log(document.cookie)
         }).catch(function(e) {
             console.log(e)
         });

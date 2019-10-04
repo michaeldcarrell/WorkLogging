@@ -67,21 +67,40 @@ let hourController = (function(hourCtrl, UICtrl) {
         }
     });
 
-    let initHourTable = async () => {
+    let initHourTable = async (res, req) => {
         let url = 'https://hour-logging-api.herokuapp.com/hours';
-        fetch(url).then(
+        fetch(url, {
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + document.cookie,
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Access-Control-Allow-Credentials': 'true'
+            }
+        }).then(
             (res) => res.json()
         ).then(function (data) {
+            console.log(data);
             for (let rows_built = 0; rows_built < data.length; rows_built++) {
                 UICtrl.insertNewRowsHours(data[rows_built])
             }
+        }).catch(function(e){
+            console.log(e)
         })
     };
 
     let initHourTypesDD = async () => {
         let dropDown = document.getElementById('hour_type_drop_down');
         let url = 'http://hour-logging-api.herokuapp.com/hour_types';
-        fetch(url).then(
+        fetch(url, {
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + document.cookie,
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Access-Control-Allow-Credentials': 'true'
+            }
+        }).then(
             (res) => res.json()
         ).then(function(data) {
             for (let rows_built = 0; rows_built < data.length; rows_built++) {
