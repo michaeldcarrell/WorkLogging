@@ -22,6 +22,7 @@ let hourUIController = (function() {
             let hours = row.insertCell(3);
             let notes = row.insertCell(4);
             id.innerHTML = hourInputs['_id'];
+            id.classList.add('col-ID');
             date.innerHTML = hourInputs['hours_completed_on'].slice(0, 10);
             type.innerHTML = hourInputs['hour_type_name'];
             hours.innerHTML = hourInputs['hours'];
