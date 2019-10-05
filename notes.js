@@ -14,8 +14,5 @@ let to_do = {
     },
     reporting: {
         idea: 'allow user to print, email and/or analyze data from their account'
-    },
-    unatheticated_users: {
-        idea: 'forces users to sign-in page users cannot see Reporting, Add Hours or Add Hour Types'
     }
 };
