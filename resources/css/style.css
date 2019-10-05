@@ -13,3 +13,12 @@
 .col-ID {
     display: none;
 }
+
+.row-del-spn {
+    color: black;
+}
+
+.btn-row-del {
+    width: 50px;
+    float: right;
+}
