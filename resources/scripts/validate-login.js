@@ -1,0 +1,1 @@
+if (document.cookie === '') {document.location.href = 'login'}
