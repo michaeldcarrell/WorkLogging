@@ -30,7 +30,7 @@ let hourUIController = (function() {
             type.innerHTML = hourInputs['hour_type_name'];
             hours.innerHTML = hourInputs['hours'];
             notes.innerHTML = hourInputs['notes'];
-            del.innserHTML = '' +
+            del.innerHTML = '' +
                 '<button type="button" class="btn btn-danger btn-sm btn-row-del">' +
                 '   <span class="row-del-spn"><b>X</b></span>' +
                 '</button>';
