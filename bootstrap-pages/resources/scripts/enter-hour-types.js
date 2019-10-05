@@ -15,6 +15,7 @@ let hourTypeUIController = (function() {
             let row = currentHourTypeTable.insertRow(1);
             let cell = row.insertCell(0);
             cell.innerHTML = cellValue;
+            cell.classList.add('col-ID');
         }
     }
 })();
