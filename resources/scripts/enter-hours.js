@@ -37,7 +37,7 @@ let hourController = (function(UICtrl) {
 
     let ctrlAddHour = function() {
         let input = UICtrl.getHourInputs();
-        let url = 'http://hour-logging-api.herokuapp.com/hours';
+        let url = 'https://hour-logging-api.herokuapp.com/hours';
         fetch(url, {
             method: 'post',
             headers: {
@@ -93,7 +93,7 @@ let hourController = (function(UICtrl) {
 
     let initHourTypesDD = async () => {
         let dropDown = document.getElementById('hour_type_drop_down');
-        let url = 'http://hour-logging-api.herokuapp.com/hour_types';
+        let url = 'https://hour-logging-api.herokuapp.com/hour_types';
         fetch(url, {
             method: 'get',
             headers: {

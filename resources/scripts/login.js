@@ -17,7 +17,7 @@ let controller = (function(loginCtrl, UICtrl) {
 
     let ctrlLogin = function() {
         let input = UICtrl.getLoginInputs();
-        let url = 'http://hour-logging-api.herokuapp.com/users/login';
+        let url = 'https://hour-logging-api.herokuapp.com/users/login';
         fetch(url, {
             method: 'post',
             headers: {

@@ -28,7 +28,7 @@ let controller = (function(hourCtrl, UICtrl) {
 
     let ctrlAddHourTypes = function() {
         let input = UICtrl.getHourTypeInputs();
-        let url = 'http://hour-logging-api.herokuapp.com/hour_types';
+        let url = 'https://hour-logging-api.herokuapp.com/hour_types';
         fetch(url, {
             method: 'post',
             headers: {
@@ -66,7 +66,7 @@ let controller = (function(hourCtrl, UICtrl) {
 
     let initHourTypeTable = function() {
         let fetch_hour_types = async () => {
-            let url = 'http://hour-logging-api.herokuapp.com/hour_types';
+            let url = 'https://hour-logging-api.herokuapp.com/hour_types';
             fetch(url, {
                 method: 'get',
                 headers: {
