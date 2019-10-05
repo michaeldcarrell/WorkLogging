@@ -74,6 +74,7 @@ let controller = (function(hourCtrl, UICtrl) {
             }).then(
                 (res) => res.json()
             ).then(function(data) {
+                console.log(data);
                 for (let rows_built = 0; rows_built < data.length; rows_built++) {
                     UICtrl.insertNewRowsHourTypeTable(data[rows_built]['hour_type_name'])
                 }
