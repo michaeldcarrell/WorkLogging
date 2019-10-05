@@ -1,3 +1,5 @@
+if (document.cookie === '') {document.location.href = 'login'}
+
 let hourUIController = (function() {
     return {
         getHourInputs: function() {
