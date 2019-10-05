@@ -10,12 +10,14 @@ let hourTypeUIController = (function() {
                 hour_type_name: document.querySelector('.inpt-hour-types').value
             }
         },
-        insertNewRowsHourTypeTable: function(cellValue) {
+        insertNewRowsHourTypeTable: function(hourTypeData) {
             let currentHourTypeTable = document.getElementById('hour-type-table');
             let row = currentHourTypeTable.insertRow(1);
-            let cell = row.insertCell(0);
-            cell.innerHTML = cellValue;
-            cell.classList.add('col-ID');
+            let id = row.insertCell(0);
+            let type = row.insertCell(1);
+            id.innerHTML = hourTypeData['_id'];
+            type.innerHTML = hourTypeData['hour_type_name'];
+            id.classList.add('col-ID');
         }
     }
 })();
@@ -53,7 +55,7 @@ let controller = (function(hourCtrl, UICtrl) {
     document.addEventListener('keypress', function(event) {
         if (event.key === "Enter" || event.which === 13) {
             if (UICtrl.getHourTypeInputs()['hour_type_name'] !== '') { //Prevents user from submitting nothing
-                UICtrl.insertNewRowsHourTypeTable(UICtrl.getHourTypeInputs()['hour_type_name']);
+                UICtrl.insertNewRowsHourTypeTable(UICtrl.getHourTypeInputs());
                 ctrlAddHourTypes();
                 document.querySelector('.inpt-hour-types').value = ''; //Clears out previous value
             }
@@ -76,7 +78,7 @@ let controller = (function(hourCtrl, UICtrl) {
             ).then(function(data) {
                 console.log(data);
                 for (let rows_built = 0; rows_built < data.length; rows_built++) {
-                    UICtrl.insertNewRowsHourTypeTable(data[rows_built]['hour_type_name'])
+                    UICtrl.insertNewRowsHourTypeTable(data[rows_built])
                 }
             })
         };
