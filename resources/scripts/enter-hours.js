@@ -66,7 +66,6 @@ let hourController = (function(UICtrl) {
     };
 
     let logOutUser = function() {
-        let input = UICtrl.getHourInputs();
         let url = 'https://hour-logging-api.herokuapp.com/users/logout';
         fetch(url, {
             method: 'post',
