@@ -4,7 +4,6 @@ if (document.cookie === '') {
     log_switch = document.querySelector('.log-toggle');
     log_switch.innerHTML = 'Logout';
     log_switch.classList.add('logout');
-    log_switch.href = '#';
 }
 
 let hourUIController = (function() {
@@ -68,7 +67,7 @@ let hourController = (function(UICtrl) {
 
     let logOutUser = function() {
         let input = UICtrl.getHourInputs();
-        let url = 'https://hour-logging-api.herokuapp.com/user/logout';
+        let url = 'https://hour-logging-api.herokuapp.com/users/logout';
         fetch(url, {
             method: 'post',
             headers: {
