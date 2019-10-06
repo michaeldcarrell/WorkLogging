@@ -74,8 +74,7 @@ let hourController = (function(UICtrl) {
                 'Authorization': 'Bearer ' + document.cookie,
                 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
                 'Access-Control-Allow-Credentials': 'true'
-            },
-            body: JSON.stringify(input)
+            }
         }).then(function(res) {
             console.log(res.json())
         }).catch(function(e) {
