@@ -19,5 +19,11 @@ let to_do = {
             UI: 'when user hits x button on a row it will mark it as "deleted" in mongo and remove it from the front end',
             set_up: 'When user adds a new record the back end needs to retrieve the id from mongo and insert it into the UI'
         }
-    }
+    },
+    edit_previously_entered_rows: {
+        idea: 'Users want the ability to edit previously entered rows',
+        implementation: 'Add a modal that will pop up when a user hits an elipsis button on the record'
+    },
+    sorting_pages: 'Let users sort pages by entries in columns',
+    user_entered_decimal_hours: 'when user enters decimals for hours should show up as 0.15 instead of .15'
 };

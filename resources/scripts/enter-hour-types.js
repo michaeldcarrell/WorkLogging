@@ -23,12 +23,14 @@ let hourTypeUIController = (function() {
             let row = currentHourTypeTable.insertRow(1);
             let id = row.insertCell(0);
             let type = row.insertCell(1);
-            let del = row.insertCell(2);
+            let btn = row.insertCell(2);
             id.innerHTML = hourTypeData['_id'];
             type.innerHTML = hourTypeData['hour_type_name'];
-            del.innerHTML = '' +
-                '<button type="button" class="btn btn-danger btn-sm btn-row-del">' +
-                '   <span class="row-del-spn"><b>X</b></span>' +
+            btn.innerHTML = '<button type="button" class="btn btn-danger btn-sm row-btn">' +
+                '    <span class="row-del-spn"><b>X</b></span>' +
+                '</button>' +
+                '<button type="button" class="btn btn-secondary btn-sm row-btn">' +
+                '    <span class="row-edit-spn"><b>...</b></span>' +
                 '</button>';
             id.classList.add('col-ID');
         }
