@@ -1,4 +1,9 @@
-if (document.cookie === '') {document.location.href = 'login'}
+if (document.cookie === '') {
+    document.location.href = 'login'
+} else {
+    document.querySelector('.log-toggle').value = 'Logout'
+
+}
 
 let hourUIController = (function() {
     return {
@@ -65,6 +70,7 @@ let hourController = (function(UICtrl) {
             ctrlAddHour();
         }
     });
+
 
     document.addEventListener('keypress', function(event) {
         if (event.key === "Enter" || event.which === 13) {
