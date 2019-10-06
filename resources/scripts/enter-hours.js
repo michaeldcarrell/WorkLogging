@@ -4,7 +4,6 @@ if (document.cookie === '') {
     log_switch = document.querySelector('.log-toggle');
     log_switch.innerHTML = 'Logout';
     log_switch.classList.add('logout');
-    document.cookie = '';
 }
 
 let hourUIController = (function() {
@@ -94,6 +93,7 @@ let hourController = (function(UICtrl) {
 
     document.querySelector('.logout').addEventListener('click', function(event) {
         logOutUser();
+        document.cookie = '';
     });
 
 
