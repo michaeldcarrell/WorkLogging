@@ -4,6 +4,7 @@ if (document.cookie === '') {
     log_switch = document.querySelector('.log-toggle');
     log_switch.innerHTML = 'Logout';
     log_switch.classList.add('logout');
+    log_switch.href = '#'
 }
 
 let hourController = (function() {
