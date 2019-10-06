@@ -1,4 +1,10 @@
-if (document.cookie === '') {document.location.href =  'login'}
+if (document.cookie === '') {
+    document.location.href = 'login'
+} else {
+    log_switch = document.querySelector('.log-toggle');
+    log_switch.innerHTML = 'Logout';
+    log_switch.classList.add('logout');
+}
 
 let hourController = (function() {
 
@@ -49,6 +55,30 @@ let controller = (function(hourCtrl, UICtrl) {
             console.log(e)
         });
     };
+
+    let logOutUser = function() {
+        let input = UICtrl.getHourInputs();
+        let url = 'https://hour-logging-api.herokuapp.com/users/logout';
+        fetch(url, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + document.cookie,
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Access-Control-Allow-Credentials': 'true'
+            },
+            body: JSON.stringify(input)
+        }).then(function(res) {
+            console.log(res.json())
+        }).catch(function(e) {
+            console.log(e)
+        });
+    };
+
+    document.querySelector('.logout').addEventListener('click', function(event) {
+        logOutUser();
+        document.cookie = '';
+    });
 
 
     document.querySelector('.type-submit').addEventListener('click', function(event) {
