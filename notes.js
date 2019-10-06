@@ -1,9 +1,7 @@
 let to_do = {
     modal: 'When logging in modal appears as if login failed',
-    router: 'Need to route "/" to login',
     logout: {
-        idea: 'When user is logged in the login nav option should change to logout and forward to a logout page',
-        implementation: 'href for that option changes as well as the text there, add in a new page for logging out'
+        idea: 'system logs user ip out after x amount of time'
     },
     sign_up: {
         idea: 'Option below login for and in modal which links to a sign-up page which will add a user',
@@ -14,5 +12,12 @@ let to_do = {
     },
     reporting: {
         idea: 'allow user to print, email and/or analyze data from their account'
+    },
+    delete_rows: {
+        idea: 'Let user delete rows from front end, persist on back end',
+        implementation: {
+            UI: 'when user hits x button on a row it will mark it as "deleted" in mongo and remove it from the front end',
+            set_up: 'When user adds a new record the back end needs to retrieve the id from mongo and insert it into the UI'
+        }
     }
 };

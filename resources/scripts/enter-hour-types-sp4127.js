@@ -1,10 +1,4 @@
-if (document.cookie === '') {
-    document.location.href = 'login'
-} else {
-    log_switch = document.querySelector('.log-toggle');
-    log_switch.innerHTML = 'Logout';
-    log_switch.classList.add('logout');
-}
+if (document.cookie === '') {document.location.href =  'login'}
 
 let hourController = (function() {
 
@@ -26,10 +20,7 @@ let hourTypeUIController = (function() {
             let del = row.insertCell(2);
             id.innerHTML = hourTypeData['_id'];
             type.innerHTML = hourTypeData['hour_type_name'];
-            del.innerHTML = '' +
-                '<button type="button" class="btn btn-danger btn-sm btn-row-del">' +
-                '   <span class="row-del-spn"><b>X</b></span>' +
-                '</button>';
+            del.innerHTML = '<button></button>>';
             id.classList.add('col-ID');
         }
     }
@@ -56,31 +47,10 @@ let controller = (function(hourCtrl, UICtrl) {
         });
     };
 
-    let logOutUser = function() {
-        let url = 'https://hour-logging-api.herokuapp.com/users/logout';
-        fetch(url, {
-            method: 'post',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + document.cookie,
-                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-                'Access-Control-Allow-Credentials': 'true'
-            }
-        }).then(function(res) {
-            console.log(res.json())
-        }).catch(function(e) {
-            console.log(e)
-        });
-    };
 
-    document.querySelector('.logout').addEventListener('click', function(event) {
-        logOutUser();
-        document.cookie = '';
-    });
-    
     document.querySelector('.type-submit').addEventListener('click', function(event) {
         if (UICtrl.getHourTypeInputs()['hour_type_name'] !== '') {//Prevents user from submitting nothing
-            UICtrl.insertNewRowsHourTypeTable(UICtrl.getHourTypeInputs());
+            UICtrl.insertNewRowsHourTypeTable(UICtrl.getHourTypeInputs()['hour_type_name']);
             ctrlAddHourTypes();
             document.querySelector('.inpt-hour-types').value = ''; //Clears out previous value
         }

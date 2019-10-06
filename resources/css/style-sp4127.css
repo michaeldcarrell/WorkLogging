@@ -1,0 +1,19 @@
+.form-container {
+    margin-top: 10px;
+}
+
+.btn-login {
+    float: right;
+}
+
+.btn-submit-hours {
+    margin-top: 35px;
+}
+
+.col-ID {
+    display: none;
+}
+
+.row-del {
+    color: black;
+}
