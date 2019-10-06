@@ -24,6 +24,13 @@ let to_do = {
         idea: 'Users want the ability to edit previously entered rows',
         implementation: 'Add a modal that will pop up when a user hits an elipsis button on the record'
     },
-    sorting_pages: 'Let users sort pages by entries in columns',
+    sorting_pages: {
+        idea: 'Let users sort pages by entries in columns'
+    },
+    page_loading: {
+        issue: 'larger amounts data cause tables to load slowly',
+        resolution: 'load data by pages of 10 or so',
+        q: 'may have been caused by relaunch (still on backlog if this is the case)'
+    },
     user_entered_decimal_hours: 'when user enters decimals for hours should show up as 0.15 instead of .15'
 };
