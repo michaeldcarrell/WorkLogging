@@ -32,7 +32,7 @@ let hourUIController = (function() {
             let del = row.insertCell(5);
             id.innerHTML = hourInputs['_id'];
             id.classList.add('col-ID');
-            id.classList.add('task' + hourInputs['_id']);
+            id.classList.add('hours-' + hourInputs['_id']);
             date.innerHTML = hourInputs['hours_completed_on'].slice(0, 10);
             type.innerHTML = hourInputs['hour_type_name'];
             hours.innerHTML = hourInputs['hours'];
