@@ -29,7 +29,7 @@ let hourTypeUIController = (function() {
             btn.innerHTML = '<button type="button" class="btn btn-danger btn-sm row-btn" id="del-' + hourTypeData['_id'] + '">' +
                 '    <span class="row-del-spn"><b>X</b></span>' +
                 '</button>' +
-                '<button type="button" class="btn btn-secondary btn-sm row-btn">' +
+                '<button type="button" class="btn btn-secondary btn-sm row-btn" id="edit-' + hourTypeData['_id'] + '">' +
                 '    <span class="row-edit-spn"><b>...</b></span>' +
                 '</button>';
             id.classList.add('col-ID');
