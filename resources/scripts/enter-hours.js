@@ -58,8 +58,10 @@ let hourController = (function(UICtrl) {
                 'Access-Control-Allow-Credentials': 'true'
             },
             body: JSON.stringify(input)
-        }).then(function(res) {
-            console.log(res.json())
+        }).then(
+            (res) => res.json()
+        ).then(function(data) {
+            console.log(data)
         }).catch(function(e) {
             console.log(e)
         });
