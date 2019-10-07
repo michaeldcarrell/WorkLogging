@@ -87,7 +87,10 @@ let hourUIController = (function() {
                 }).then(
                     (res) => res.json()
                 ).then(function(data) {
-                    console.log(data)
+                    document.getElementById('hour_type_drop_down-modal').value = data['hours'];
+                    document.getElementById('inpt-date-modal').value = data['hours_completed_on'];
+                    document.getElementById('inpt-hours-modal').value = data['hours'];
+                    document.getElementById('inpt-notes-modal').value = data['notes'];
                 }).catch(function(e) {
                     console.log(e)
                 });
