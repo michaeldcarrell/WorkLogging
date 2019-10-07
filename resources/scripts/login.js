@@ -33,8 +33,7 @@ let controller = (function(loginCtrl, UICtrl) {
             document.location.href = 'enter-hours'
         }).catch(function(e) {
             console.log('Login Failed');
-            document.getElementById('loginFailedModal').style.display = 'block';
-            document.getElementById('loginFailedModal').classList.add('show');
+            document.getElementById('loginFailedModal').modal('toggle')
         });
     };
 
