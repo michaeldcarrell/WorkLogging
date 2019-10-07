@@ -32,16 +32,20 @@ let hourUIController = (function() {
             let del = row.insertCell(5);
             id.innerHTML = hourInputs['_id'];
             id.classList.add('col-ID');
-            id.classList.add('hours-' + hourInputs['_id']);
-            row.classList.add(hourInputs['_id']);
+            row.classList.add('row-' + hourInputs['_id']);
             date.innerHTML = hourInputs['hours_completed_on'].slice(0, 10);
             type.innerHTML = hourInputs['hour_type_name'];
             hours.innerHTML = hourInputs['hours'];
             notes.innerHTML = hourInputs['notes'];
             del.innerHTML = '' +
                 '<button type="button" class="btn btn-danger btn-sm btn-row-del">' +
-                '   <span class="row-del-spn"><b>X</b></span>' +
+                '   <span class="row-del-spn del-' + hourInputs['_id'] + '"><b>X</b></span>' +
                 '</button>';
+            del.classList.add('del-' + hourInputs['_id']);
+
+            document.querySelector('.del-' + hourInputs['_id']).addEventListener('click', function (event) {
+                console.log(hourInputs['_id'])
+            });
         }
     }
 })();
@@ -97,7 +101,7 @@ let hourController = (function(UICtrl) {
         logOutUser();
         document.cookie = '';
     });
-
+    
 
     document.addEventListener('keypress', function(event) {
         if (event.key === "Enter" || event.which === 13) {
