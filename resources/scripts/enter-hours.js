@@ -61,7 +61,8 @@ let hourController = (function(UICtrl) {
         }).then(
             (res) => res.json()
         ).then(function(data) {
-            console.log(data)
+            console.log(data);
+            UICtrl.insertNewRowsHours(data);
         }).catch(function(e) {
             console.log(e)
         });
@@ -86,7 +87,7 @@ let hourController = (function(UICtrl) {
 
     document.querySelector('.submit-input').addEventListener('click', function(event) {
         if (UICtrl.getHourInputs().acceptableInput()) {
-            UICtrl.insertNewRowsHours(UICtrl.getHourInputs());
+            // UICtrl.insertNewRowsHours(UICtrl.getHourInputs());
             ctrlAddHour();
         }
     });
@@ -100,7 +101,7 @@ let hourController = (function(UICtrl) {
     document.addEventListener('keypress', function(event) {
         if (event.key === "Enter" || event.which === 13) {
             if (UICtrl.getHourInputs().acceptableInput()) {
-                UICtrl.insertNewRowsHours(UICtrl.getHourInputs());
+                // UICtrl.insertNewRowsHours(UICtrl.getHourInputs());
                 ctrlAddHour();
             }
         }
