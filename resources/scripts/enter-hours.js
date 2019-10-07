@@ -206,10 +206,13 @@ let hourController = (function(UICtrl) {
             for (let rows_built = 0; rows_built < data.length; rows_built++) {
                 let newOption = data[rows_built]['hour_type_name'];
                 let option = document.createElement("option");
+                let optionModal = document.createElement('option');
                 option.textContent = newOption;
                 option.value = newOption;
+                optionModal.value = newOption;
+                optionModal.textContent = newOption;
                 dropDown.appendChild(option);
-                dropDownModal.appendChild(option);
+                dropDownModal.appendChild(optionModal);
             }
         })
     };
