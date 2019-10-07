@@ -134,7 +134,7 @@ let hourController = (function(UICtrl) {
     });
 
     let initHourTable = async (res, req) => {
-        let url = 'https://hour-logging-api.herokuapp.com/hours';
+        let url = 'https://hour-logging-api.herokuapp.com/hours/active';
         fetch(url, {
             method: 'get',
             headers: {
