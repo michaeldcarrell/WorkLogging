@@ -37,7 +37,7 @@ let hourTypeUIController = (function() {
             row.id = 'row-' + hourTypeData['_id'];
 
 
-            document.getElementById('del-' + hourInputs['_id']).addEventListener('click', function (event) {
+            document.getElementById('del-' + hourTypeData['_id']).addEventListener('click', function (event) {
                 let url = 'https://hour-logging-api.herokuapp.com/hour_types/' + hourTypeData['_id'];
                 let reqBody = {
                     deleted: true
@@ -59,7 +59,7 @@ let hourTypeUIController = (function() {
                     console.log(e)
                 });
 
-                document.getElementById('row-' + hourTypeData['_id']).style.display = 'none'
+                document.getElementById('row-' + hourTypeData['_id']).style.display = 'none';
             });
         }
     }
