@@ -44,7 +44,18 @@ let hourUIController = (function() {
             del.classList.add('del-' + hourInputs['_id']);
 
             document.querySelector('.del-' + hourInputs['_id']).addEventListener('click', function (event) {
-                console.log(hourInputs['_id'])
+                let url = 'https://hour-logging-api.herokuapp.com/hours/' + hourInputs['_id'];
+                console.log(JSON.stringify(hourInputs['_id']));
+                // fetch(url, {
+                //     method: 'patch',
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //         'Authorization': 'Bearer ' + document.cookie,
+                //         'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                //         'Access-Control-Allow-Credentials': 'true'
+                //     },
+                //     body: JSON.stringify(input)
+                // })
             });
         }
     }
