@@ -87,10 +87,15 @@ let hourUIController = (function() {
                 }).then(
                     (res) => res.json()
                 ).then(function(data) {
-                    document.getElementById('hour_type_drop_down-modal').value = data['hours'];
+                    document.getElementById('hour_type_drop_down-modal').value = data['hour_type_name'];
                     document.getElementById('inpt-date-modal').value = data['hours_completed_on'].slice(0, 10);
                     document.getElementById('inpt-hours-modal').value = data['hours'];
                     document.getElementById('inpt-notes-modal').value = data['notes'];
+                    document.getElementById('modal-table-id-col').innerHTML = data['_id'];
+                    document.getElementById('modal-table-date').innerHTML = data['hours_completed_on'].slice(0, 10);
+                    document.getElementById('modal-table-hour-type').innerHTML = data['hour_type_name'];
+                    document.getElementById('modal-table-notes').innerHTML = data['notes'];
+
                 }).catch(function(e) {
                     console.log(e)
                 });
