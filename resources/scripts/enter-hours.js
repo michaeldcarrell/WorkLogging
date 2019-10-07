@@ -45,7 +45,11 @@ let hourUIController = (function() {
 
             document.querySelector('.del-' + hourInputs['_id']).addEventListener('click', function (event) {
                 let url = 'https://hour-logging-api.herokuapp.com/hours/' + hourInputs['_id'];
-                console.log(JSON.stringify(hourInputs['_id']));
+                let reqBody = {
+                    deleted: true
+                };
+                console.log(url);
+                console.log(JSON.stringify(reqBody));
                 // fetch(url, {
                 //     method: 'patch',
                 //     headers: {
