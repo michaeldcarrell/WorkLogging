@@ -32,18 +32,19 @@ let hourUIController = (function() {
             let del = row.insertCell(5);
             id.innerHTML = hourInputs['_id'];
             id.classList.add('col-ID');
-            row.classList.add('row-' + hourInputs['_id']);
+            row.id = 'row-' + hourInputs['_id'];
             date.innerHTML = hourInputs['hours_completed_on'].slice(0, 10);
             type.innerHTML = hourInputs['hour_type_name'];
             hours.innerHTML = hourInputs['hours'];
             notes.innerHTML = hourInputs['notes'];
             del.innerHTML = '' +
-                '<button type="button" class="btn btn-danger btn-sm btn-row-del">' +
-                '   <span class="row-del-spn del-' + hourInputs['_id'] + '"><b>X</b></span>' +
+                '<button type="button" class="btn btn-danger btn-sm btn-row-del" id="del-' + hourInputs['_id'] + '">' +
+                '   <span class="row-del-spn"><b>X</b></span>' +
                 '</button>';
-            del.classList.add('del-' + hourInputs['_id']);
+            del.id = 'btns-' + hourInputs['_id'];
 
-            document.querySelector('.del-' + hourInputs['_id']).addEventListener('click', function (event) {
+
+            document.getElementById('del-' + hourInputs['_id']).addEventListener('click', function (event) {
                 let url = 'https://hour-logging-api.herokuapp.com/hours/' + hourInputs['_id'];
                 let reqBody = {
                     deleted: true
@@ -64,6 +65,8 @@ let hourUIController = (function() {
                 }).catch(function(e) {
                     console.log(e)
                 });
+
+                document.getElementById('row-' + hourInputs['_id']).style.display = 'none'
             });
         }
     }
