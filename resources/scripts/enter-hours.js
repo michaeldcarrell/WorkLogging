@@ -45,7 +45,7 @@ let hourUIController = (function() {
                 '</button>';
             del.id = 'btns-' + hourInputs['_id'];
 
-
+            //deleting hours
             document.getElementById('del-' + hourInputs['_id']).addEventListener('click', function (event) {
                 let url = 'https://hour-logging-api.herokuapp.com/hours/' + hourInputs['_id'];
                 let reqBody = {
@@ -69,6 +69,29 @@ let hourUIController = (function() {
                 });
 
                 document.getElementById('row-' + hourInputs['_id']).style.display = 'none'
+            });
+
+            //populates the update modal table
+            document.getElementById('del-' + hourInputs['_id']).addEventListener('click', function (event) {
+                let url = 'https://hour-logging-api.herokuapp.com/hours/' + hourInputs['_id'];
+                let reqBody = {
+                    deleted: true
+                };
+
+                fetch(url, {
+                    method: 'get',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + document.cookie,
+                        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                        'Access-Control-Allow-Credentials': 'true',
+                        'Access-Control-Allow-Methods': 'PATCH'
+                    }
+                }).then(function(res) {
+                    console.log(res.json())
+                }).catch(function(e) {
+                    console.log(e)
+                });
             });
         }
     }

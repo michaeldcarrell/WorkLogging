@@ -42,7 +42,24 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>{} was added</p>
+                    <table class="table table-dark" id="hour-edit-modal-table">
+                        <tr class="header">
+                            <th class="col-ID">ID</th>
+                            <th>Date</th>
+                            <th>Hour Type</th>
+                            <th>Hours</th>
+                            <th>Notes</th>
+                            <th></th>
+                        </tr>
+                        <tbody>
+                            <tr>
+                                <td class="col-ID">ID</td>
+                                <td>Date</td>
+                                <td>Hour Type</td>
+                                <td>Notes</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
@@ -69,7 +86,7 @@
                     <input type="text" class="form-unit form-control notes-input" id="inpt-notes">
                 </div>
                 <div class="form-group col btn-submit-hours">
-                    <button type="submit" class="btn btn-dark submit-input" data-toggle="modal" data-target="#hourSubmissionModal">Submit</button>
+                    <button type="submit" class="btn btn-dark submit-input">Submit</button>
                 </div>
             </div>
     </div>
@@ -83,8 +100,7 @@
                     <th>Notes</th>
                     <th></th>
                 </tr>
-            <tbody>
-            </tbody>
+            <tbody></tbody>
         </table>
     </div>
 </body>
