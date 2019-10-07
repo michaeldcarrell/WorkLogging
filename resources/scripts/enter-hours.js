@@ -50,12 +50,13 @@ let hourUIController = (function() {
                 };
 
                 fetch(url, {
-                    method: 'patch',
+                    method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': 'Bearer ' + document.cookie,
                         'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-                        'Access-Control-Allow-Credentials': 'true'
+                        'Access-Control-Allow-Credentials': 'true',
+                        'Access-Control-Allow-Methods': 'PATCH'
                     },
                     body: JSON.stringify(reqBody)
                 }).then(function(res) {
