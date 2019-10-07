@@ -1,3 +1,8 @@
+let script = document.createElement('script');
+script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
+script.type = 'text/javascript';
+document.getElementsByTagName('head')[0].append(script);
+
 let loginController = (function() {
 
 })();
@@ -33,9 +38,10 @@ let controller = (function(loginCtrl, UICtrl) {
             document.location.href = 'enter-hours'
         }).catch(function(e) {
             console.log('Login Failed');
-            document.getElementById('loginFailedModal').style.display = 'block';
-            document.getElementById('loginFailedModal').classList.add('show');
-            document.body.classList.add('modal-open')
+            // document.getElementById('loginFailedModal').style.display = 'block';
+            // document.getElementById('loginFailedModal').classList.add('show');
+            // document.body.classList.add('modal-open')
+            $('#loginFailedModal').modal('toggle');
         });
     };
 
