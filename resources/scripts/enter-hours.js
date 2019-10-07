@@ -84,8 +84,10 @@ let hourUIController = (function() {
                         'Access-Control-Allow-Credentials': 'true',
                         'Access-Control-Allow-Methods': 'get'
                     }
-                }).then(function(res) {
-                    console.log(res.json())
+                }).then(
+                    (res) => res.json()
+                ).then(function(data) {
+                    console.log(data)
                 }).catch(function(e) {
                     console.log(e)
                 });
