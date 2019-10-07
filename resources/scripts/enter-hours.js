@@ -32,6 +32,7 @@ let hourUIController = (function() {
             let del = row.insertCell(5);
             id.innerHTML = hourInputs['_id'];
             id.classList.add('col-ID');
+            id.classList.add('task' + hourInputs['_id']);
             date.innerHTML = hourInputs['hours_completed_on'].slice(0, 10);
             type.innerHTML = hourInputs['hour_type_name'];
             hours.innerHTML = hourInputs['hours'];
@@ -87,7 +88,6 @@ let hourController = (function(UICtrl) {
 
     document.querySelector('.submit-input').addEventListener('click', function(event) {
         if (UICtrl.getHourInputs().acceptableInput()) {
-            // UICtrl.insertNewRowsHours(UICtrl.getHourInputs());
             ctrlAddHour();
         }
     });
@@ -101,7 +101,6 @@ let hourController = (function(UICtrl) {
     document.addEventListener('keypress', function(event) {
         if (event.key === "Enter" || event.which === 13) {
             if (UICtrl.getHourInputs().acceptableInput()) {
-                // UICtrl.insertNewRowsHours(UICtrl.getHourInputs());
                 ctrlAddHour();
             }
         }
