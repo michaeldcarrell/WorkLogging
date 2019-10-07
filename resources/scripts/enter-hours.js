@@ -21,6 +21,19 @@ let hourUIController = (function() {
                 }
             }
         },
+        getModalInputs: function() {
+            return {
+                hour_type_name: document.getElementById('hour_type_drop_down-modal').value,
+                hours_completed_on: document.getElementById('inpt-date-modal').value,
+                hours: document.getElementById('inpt-hours-modal').value,
+                notes: document.getElementById('inpt-notes-modal').value,
+                acceptableInput: function() {
+                    return !(this.hour_type_name === '' ||
+                    this.hours_completed_on === '' ||
+                    this.hours === '');
+                }
+            }
+        },
         insertNewRowsHours: function(hourInputs) {
             let currentHourTable = document.getElementById("hour-table");
             let row = currentHourTable.insertRow(1);
@@ -130,6 +143,31 @@ let hourController = (function(UICtrl) {
         });
     };
 
+
+    let ctrlEditHours = function(hourID) {
+        let input = UICtrl.getModalInputs();
+        let url = 'https://hour-logging-api.herokuapp.com/hours';
+        fetch(url, {
+            method:'patch',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + document.cookie,
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Access-Control-Allow-Credentials': 'true'
+            },
+            body: JSON.stringify(input)
+        }).then(
+            (res) => res.json()
+        ).then(function(data){
+           let updateRow = document.getElementById('row-' + data['_id']).children;
+            updateRow[0].innerHTML = data['_id'];
+            updateRow[1].innerHTML = data['hours_completed_on'];
+            updateRow[2].innerHTML = data['hour_type_name'];
+            updateRow[3].innerHTML = data['hours'];
+            updateRow[4].innerHTML = data['notes'];
+        })
+    };
+
     let logOutUser = function() {
         let url = 'https://hour-logging-api.herokuapp.com/users/logout';
         fetch(url, {
@@ -160,10 +198,18 @@ let hourController = (function(UICtrl) {
     
 
     document.addEventListener('keypress', function(event) {
+        // add logic here for if the modal is open
         if (event.key === "Enter" || event.which === 13) {
             if (UICtrl.getHourInputs().acceptableInput()) {
                 ctrlAddHour();
             }
+        }
+    });
+
+    document.getElementById('submit-edit-modal').addEventListener('click', function(event) {
+        let currentRowID = document.getElementById('modal-table-id-col').value;
+        if (UICtrl.getModalInputs().acceptableInput()) {
+            ctrlEditHours(currentRowID);
         }
     });
 
