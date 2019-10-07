@@ -72,11 +72,8 @@ let hourUIController = (function() {
             });
 
             //populates the update modal table
-            document.getElementById('del-' + hourInputs['_id']).addEventListener('click', function (event) {
+            document.getElementById('edit-' + hourInputs['_id']).addEventListener('click', function (event) {
                 let url = 'https://hour-logging-api.herokuapp.com/hours/' + hourInputs['_id'];
-                let reqBody = {
-                    deleted: true
-                };
 
                 fetch(url, {
                     method: 'get',
@@ -85,7 +82,7 @@ let hourUIController = (function() {
                         'Authorization': 'Bearer ' + document.cookie,
                         'Access-Control-Allow-Headers': 'Content-Type, Authorization',
                         'Access-Control-Allow-Credentials': 'true',
-                        'Access-Control-Allow-Methods': 'PATCH'
+                        'Access-Control-Allow-Methods': 'get'
                     }
                 }).then(function(res) {
                     console.log(res.json())
