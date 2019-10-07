@@ -26,13 +26,41 @@ let hourTypeUIController = (function() {
             let btn = row.insertCell(2);
             id.innerHTML = hourTypeData['_id'];
             type.innerHTML = hourTypeData['hour_type_name'];
-            btn.innerHTML = '<button type="button" class="btn btn-danger btn-sm row-btn">' +
+            btn.innerHTML = '<button type="button" class="btn btn-danger btn-sm row-btn" id="del-' + hourTypeData['_id'] + '">' +
                 '    <span class="row-del-spn"><b>X</b></span>' +
                 '</button>' +
                 '<button type="button" class="btn btn-secondary btn-sm row-btn">' +
                 '    <span class="row-edit-spn"><b>...</b></span>' +
                 '</button>';
             id.classList.add('col-ID');
+            btn.id = 'btns-' + hourTypeData['_id'];
+            row.id = 'row-' + hourTypeData['_id'];
+
+
+            document.getElementById('del-' + hourInputs['_id']).addEventListener('click', function (event) {
+                let url = 'https://hour-logging-api.herokuapp.com/hour_types/' + hourTypeData['_id'];
+                let reqBody = {
+                    deleted: true
+                };
+
+                fetch(url, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + document.cookie,
+                        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                        'Access-Control-Allow-Credentials': 'true',
+                        'Access-Control-Allow-Methods': 'PATCH'
+                    },
+                    body: JSON.stringify(reqBody)
+                }).then(function(res) {
+                    console.log(res.json())
+                }).catch(function(e) {
+                    console.log(e)
+                });
+
+                document.getElementById('row-' + hourTypeData['_id']).style.display = 'none'
+            });
         }
     }
 })();
