@@ -33,10 +33,10 @@
         </div>
     </nav>
     <div class="modal fade" id="hourSubmissionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Hours Added!</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Hours</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -60,6 +60,29 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div class="container-fluid form-container">
+                        <div class="row">
+                            <div class="form-group col-2">
+                                <label for="hour_type_drop_down" class="form-text text-muted">Type</label>
+                                <select class="form-unit hour-type-input form-control" id="hour_type_drop_down"></select>
+                            </div>
+                            <div class="form-group col">
+                                <label for="inpt-date" class="form-text text-muted">Date</label>
+                                <input type="date" class="form-unit form-control hour-date-input" id="inpt-date">
+                            </div>
+                            <div class="form-group col">
+                                <label for="inpt-hours" class="form-text text-muted">Hours</label>
+                                <input type="number" class="form-unit form-control hours-gained-input" id="inpt-hours">
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="inpt-notes" class="form-text text-muted">Notes</label>
+                                <input type="text" class="form-unit form-control notes-input" id="inpt-notes">
+                            </div>
+                            <div class="form-group col btn-submit-hours">
+                                <button type="submit" class="btn btn-dark submit-input">Submit</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
