@@ -48,18 +48,21 @@ let hourUIController = (function() {
                 let reqBody = {
                     deleted: true
                 };
-                console.log(url);
-                console.log(JSON.stringify(reqBody));
-                // fetch(url, {
-                //     method: 'patch',
-                //     headers: {
-                //         'Content-Type': 'application/json',
-                //         'Authorization': 'Bearer ' + document.cookie,
-                //         'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-                //         'Access-Control-Allow-Credentials': 'true'
-                //     },
-                //     body: JSON.stringify(input)
-                // })
+
+                fetch(url, {
+                    method: 'patch',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + document.cookie,
+                        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                        'Access-Control-Allow-Credentials': 'true'
+                    },
+                    body: JSON.stringify(reqBody)
+                }).then(function(res) {
+                    console.log(res.json())
+                }).catch(function(e) {
+                    console.log(e)
+                });
             });
         }
     }
