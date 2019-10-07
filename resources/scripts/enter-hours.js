@@ -94,6 +94,7 @@ let hourUIController = (function() {
                     document.getElementById('modal-table-id-col').innerHTML = data['_id'];
                     document.getElementById('modal-table-date').innerHTML = data['hours_completed_on'].slice(0, 10);
                     document.getElementById('modal-table-hour-type').innerHTML = data['hour_type_name'];
+                    document.getElementById('modal-table-hours').innerHTML = data['hours'];
                     document.getElementById('modal-table-notes').innerHTML = data['notes'];
 
                 }).catch(function(e) {
