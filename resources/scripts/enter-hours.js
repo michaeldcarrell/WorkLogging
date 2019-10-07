@@ -190,7 +190,7 @@ let hourController = (function(UICtrl) {
 
     let initHourTypesDD = async () => {
         let dropDown = document.getElementById('hour_type_drop_down');
-        let dropDownModal = document.getElementById('hour-edit-modal-table');
+        let dropDownModal = document.getElementById('hour_type_drop_down-modal');
         let url = 'https://hour-logging-api.herokuapp.com/hour_types';
         fetch(url, {
             method: 'get',
