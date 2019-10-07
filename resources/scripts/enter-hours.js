@@ -94,8 +94,8 @@ let hourUIController = (function() {
                 }).catch(function(e) {
                     console.log(e)
                 });
+                $('#hourSubmissionModal').modal('toggle');
             });
-            $('#hourSubmissionModal').modal('toggle');
         }
     }
 })();
