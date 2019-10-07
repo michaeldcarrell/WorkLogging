@@ -21,6 +21,5 @@
 .row-btn {
     width: 50px;
     float: right;
-    margin-left: 2px;
-    margin-right: 2px;
+    margin: 2px;
 }
