@@ -161,7 +161,7 @@ let hourController = (function(UICtrl) {
         ).then(function(data){
            let updateRow = document.getElementById('row-' + data['_id']).children;
             updateRow[0].innerHTML = data['_id'];
-            updateRow[1].innerHTML = data['hours_completed_on'];
+            updateRow[1].innerHTML = data['hours_completed_on'].slice(0, 10);
             updateRow[2].innerHTML = data['hour_type_name'];
             updateRow[3].innerHTML = data['hours'];
             updateRow[4].innerHTML = data['notes'];
@@ -211,6 +211,7 @@ let hourController = (function(UICtrl) {
         if (UICtrl.getModalInputs().acceptableInput()) {
             ctrlEditHours(currentRowID);
         }
+        $('#hourSubmissionModal').modal('toggle');
     });
 
     let initHourTable = async (res, req) => {
