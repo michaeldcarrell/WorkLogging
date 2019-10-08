@@ -29,8 +29,8 @@ let hourUIController = (function() {
                 notes: document.getElementById('inpt-notes-modal').value,
                 acceptableInput: function() {
                     return !(this.hour_type_name === '' ||
-                    this.hours_completed_on === '' ||
-                    this.hours === '');
+                        this.hours_completed_on === '' ||
+                        this.hours === '');
                 }
             }
         },
@@ -159,7 +159,7 @@ let hourController = (function(UICtrl) {
         }).then(
             (res) => res.json()
         ).then(function(data){
-           let updateRow = document.getElementById('row-' + data['_id']).children;
+            let updateRow = document.getElementById('row-' + data['_id']).children;
             updateRow[0].innerHTML = data['_id'];
             updateRow[1].innerHTML = data['hours_completed_on'].slice(0, 10);
             updateRow[2].innerHTML = data['hour_type_name'];
@@ -195,7 +195,7 @@ let hourController = (function(UICtrl) {
         logOutUser();
         document.cookie = '';
     });
-    
+
 
     document.addEventListener('keypress', function(event) {
         // add logic here for if the modal is open
@@ -264,9 +264,39 @@ let hourController = (function(UICtrl) {
         })
     };
 
+    let initContactTypesDD = async () => {
+        let dropDown = document.getElementById('contact_type_drop_down');
+        let dropDownModal = document.getElementById('contact_type_drop_down-modal');
+        let url = 'https://hour-logging-api.herokuapp.com/contact_types';
+        fetch(url, {
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + document.cookie,
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Access-Control-Allow-Credentials': 'true'
+            }
+        }).then(
+            (res) => res.json()
+        ).then(function(data) {
+            for (let rows_built = 0; rows_built < data.length; rows_built++) {
+                let newOption = data[rows_built];
+                let option = document.createElement("option");
+                let optionModal = document.createElement('option');
+                option.textContent = newOption['contact_type_name'];
+                option.value = newOption['_id'];
+                optionModal.value = newOption['_id'];
+                optionModal.textContent = newOption['contact_type_name'];
+                dropDown.appendChild(option);
+                dropDownModal.appendChild(optionModal);
+            }
+        })
+    };
+
     let init = function() {
         initHourTable();
         initHourTypesDD();
+        initContactTypesDD();
     }();
 
 })(hourUIController);

@@ -9,123 +9,131 @@
 </head>
 <script src="resources/scripts/validate-login.js"></script>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Work Logging</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <!--            <div class="collapse navbar-collapse mr-auto" id="navbarSupportedContent">-->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Reporting</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="enter-hours.html">Add Hours</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="enter-hour-types.html">Add Hour Types</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link log-toggle" href="login.html">Login</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div class="modal fade" id="hourSubmissionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Hours</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-dark" id="hour-edit-modal-table">
-                        <tr class="header">
-                            <th class="col-ID">ID</th>
-                            <th>Date</th>
-                            <th>Hour Type</th>
-                            <th>Hours</th>
-                            <th>Notes</th>
-                        </tr>
-                        <tbody>
-                            <tr>
-                                <td class="col-ID" id="modal-table-id-col">ID</td>
-                                <td id="modal-table-date">Date</td>
-                                <td id="modal-table-hour-type">Hour Type</td>
-                                <td id="modal-table-hours">Hours</td>
-                                <td id="modal-table-notes">Notes</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="container-fluid form-container">
-                        <div class="row">
-                            <div class="form-group col-2">
-                                <label for="hour_type_drop_down" class="form-text text-muted">Type</label>
-                                <select class="form-unit hour-type-input form-control" id="hour_type_drop_down-modal"></select>
-                            </div>
-                            <div class="form-group col">
-                                <label for="inpt-date" class="form-text text-muted">Date</label>
-                                <input type="date" class="form-unit form-control hour-date-input" id="inpt-date-modal">
-                            </div>
-                            <div class="form-group col">
-                                <label for="inpt-hours" class="form-text text-muted">Hours</label>
-                                <input type="number" class="form-unit form-control hours-gained-input" id="inpt-hours-modal">
-                            </div>
-                            <div class="form-group col-6">
-                                <label for="inpt-notes" class="form-text text-muted">Notes</label>
-                                <input type="text" class="form-unit form-control notes-input" id="inpt-notes-modal">
-                            </div>
-                            <div class="form-group col btn-submit-hours">
-                                <button type="submit" class="btn btn-dark submit-input-modal" id="submit-edit-modal">Submit</button>
-                            </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Work Logging</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!--            <div class="collapse navbar-collapse mr-auto" id="navbarSupportedContent">-->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Reporting</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="enter-hours.html">Add Hours</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="enter-hour-types.html">Add Hour Types</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link log-toggle" href="login.html">Login</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="modal fade" id="hourSubmissionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Hours</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-dark" id="hour-edit-modal-table">
+                    <tr class="header">
+                        <th class="col-ID">ID</th>
+                        <th>Date</th>
+                        <th>Hour Type</th>
+                        <th>Hours</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tbody>
+                    <tr>
+                        <td class="col-ID" id="modal-table-id-col">ID</td>
+                        <td id="modal-table-date">Date</td>
+                        <td id="modal-table-hour-type">Hour Type</td>
+                        <td id="modal-table-hours">Hours</td>
+                        <td id="modal-table-notes">Notes</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="container-fluid form-container">
+                    <div class="row">
+                        <div class="form-group col-2">
+                            <label for="hour_type_drop_down" class="form-text text-muted">Type</label>
+                            <select class="form-unit hour-type-input form-control" id="hour_type_drop_down-modal"></select>
+                        </div>
+                        <div class="form-group col-2">
+                            <label for="contact_type_drop_down-modal" class="form-text text-muted">Type of Contact</label>
+                            <select class="form-unit hour-type-input form-control" id="contact_type_drop_down-modal"></select>
+                        </div>
+                        <div class="form-group col">
+                            <label for="inpt-date" class="form-text text-muted">Date</label>
+                            <input type="date" class="form-unit form-control hour-date-input" id="inpt-date-modal">
+                        </div>
+                        <div class="form-group col">
+                            <label for="inpt-hours" class="form-text text-muted">Hours</label>
+                            <input type="number" class="form-unit form-control hours-gained-input" id="inpt-hours-modal">
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="inpt-notes" class="form-text text-muted">Notes</label>
+                            <input type="text" class="form-unit form-control notes-input" id="inpt-notes-modal">
+                        </div>
+                        <div class="form-group col btn-submit-hours">
+                            <button type="submit" class="btn btn-dark submit-input-modal" id="submit-edit-modal">Submit</button>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
-    <div class="container-fluid form-container">
-            <div class="row">
-                <div class="form-group col-2">
-                    <label for="hour_type_drop_down" class="form-text text-muted">Type</label>
-                    <select class="form-unit hour-type-input form-control" id="hour_type_drop_down"></select>
-                </div>
-                <div class="form-group col">
-                    <label for="inpt-date" class="form-text text-muted">Date</label>
-                    <input type="date" class="form-unit form-control hour-date-input" id="inpt-date">
-                </div>
-                <div class="form-group col">
-                    <label for="inpt-hours" class="form-text text-muted">Hours</label>
-                    <input type="number" class="form-unit form-control hours-gained-input" id="inpt-hours">
-                </div>
-                <div class="form-group col-6">
-                    <label for="inpt-notes" class="form-text text-muted">Notes</label>
-                    <input type="text" class="form-unit form-control notes-input" id="inpt-notes">
-                </div>
-                <div class="form-group col btn-submit-hours">
-                    <button type="submit" class="btn btn-dark submit-input">Submit</button>
-                </div>
-            </div>
+</div>
+<div class="container-fluid form-container">
+    <div class="row">
+        <div class="form-group col-2">
+            <label for="hour_type_drop_down" class="form-text text-muted">Type of Hours</label>
+            <select class="form-unit hour-type-input form-control" id="hour_type_drop_down"></select>
+        </div>
+        <div class="form-group col-2">
+            <label for="contact_type_drop_down" class="form-text text-muted">Type of Contact</label>
+            <select class="form-unit hour-type-input form-control" id="contact_type_drop_down"></select>
+        </div>
+        <div class="form-group col">
+            <label for="inpt-date" class="form-text text-muted">Date</label>
+            <input type="date" class="form-unit form-control hour-date-input" id="inpt-date">
+        </div>
+        <div class="form-group col">
+            <label for="inpt-hours" class="form-text text-muted">Hours</label>
+            <input type="number" class="form-unit form-control hours-gained-input" id="inpt-hours">
+        </div>
+        <div class="form-group col-6">
+            <label for="inpt-notes" class="form-text text-muted">Notes</label>
+            <input type="text" class="form-unit form-control notes-input" id="inpt-notes">
+        </div>
+        <div class="form-group col btn-submit-hours">
+            <button type="submit" class="btn btn-dark submit-input">Submit</button>
+        </div>
     </div>
-    <div class="container-fluid">
-        <table class="table table-dark" id="hour-table">
-                <tr class="header">
-                    <th class="col-ID">ID</th>
-                    <th>Date</th>
-                    <th>Hour Type</th>
-                    <th>Hours</th>
-                    <th>Notes</th>
-                    <th></th>
-                </tr>
-            <tbody></tbody>
-        </table>
-    </div>
+</div>
+<div class="container-fluid">
+    <table class="table table-dark" id="hour-table">
+        <tr class="header">
+            <th class="col-ID">ID</th>
+            <th>Date</th>
+            <th>Hour Type</th>
+            <th>Hours</th>
+            <th>Notes</th>
+            <th></th>
+        </tr>
+        <tbody></tbody>
+    </table>
+</div>
 </body>
 <script src="resources/scripts/enter-hours.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
