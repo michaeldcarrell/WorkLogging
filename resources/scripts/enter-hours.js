@@ -9,10 +9,10 @@ if (document.cookie === '') {
 let hourUIController = (function() {
     return {
         getHourInputs: function() {
-            let contactTypeDDOptions = document.querySelector('contact_type_drop_down');
+            let contactTypeDDOptions = document.getElementById('contact_type_drop_down');
             return {
                 hour_type_name: document.querySelector('.hour-type-input').value,
-                contact_type_id: document.getElementById('.hour-type-input').value,
+                contact_type_id: document.getElementById('hour-type-input').value,
                 contact_type_name: contactTypeDDOptions[contactTypeDDOptions.selectedIndex].text,
                 hours_completed_on: document.getElementById('inpt-date').value,
                 hours: document.querySelector('.hours-gained-input').value,
