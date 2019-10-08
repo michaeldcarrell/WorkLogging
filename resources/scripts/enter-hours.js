@@ -148,7 +148,7 @@ let hourController = (function(UICtrl) {
         let input = UICtrl.getModalInputs();
         let url = 'https://hour-logging-api.herokuapp.com/hours/' + hourID;
         fetch(url, {
-            method:'patch',
+            method:'PATCH',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + document.cookie,
