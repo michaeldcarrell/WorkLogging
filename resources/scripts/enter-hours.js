@@ -11,12 +11,12 @@ let hourUIController = (function() {
         getHourInputs: function() {
             let contactTypeDDOptions = document.getElementById('contact_type_drop_down');
             return {
-                hour_type_name: document.querySelector('.hour-type-input').value,
-                contact_type_id: document.getElementById('hour-type-input').value,
+                hour_type_name: document.getElementById('.hour_type_drop_down').value,
+                contact_type_id: document.getElementById('contact_type_drop_down').value,
                 contact_type_name: contactTypeDDOptions[contactTypeDDOptions.selectedIndex].text,
                 hours_completed_on: document.getElementById('inpt-date').value,
-                hours: document.querySelector('.hours-gained-input').value,
-                notes: document.querySelector('.notes-input').value,
+                hours: document.getElementById('inpt-hours').value,
+                notes: document.getElementById('inpt-notes').value,
                 acceptableInput: function() {
                     return !(this.hour_type_name === '' ||
                         this.contact_type_id === '' ||
