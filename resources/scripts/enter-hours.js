@@ -146,7 +146,7 @@ let hourController = (function(UICtrl) {
 
     let ctrlEditHours = function(hourID) {
         let input = UICtrl.getModalInputs();
-        let url = 'https://hour-logging-api.herokuapp.com/hours';
+        let url = 'https://hour-logging-api.herokuapp.com/hours/' + hourID;
         fetch(url, {
             method:'patch',
             headers: {
