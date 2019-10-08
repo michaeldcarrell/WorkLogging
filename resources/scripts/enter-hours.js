@@ -51,7 +51,7 @@ let hourUIController = (function() {
             let type = row.insertCell(2);
             let contact = row.insertCell(3);
             let hours = row.insertCell(4);
-            let notes = row.insertCell(6);
+            let notes = row.insertCell(5);
             let del = row.insertCell(6);
             id.innerHTML = hourInputs['_id'];
             id.classList.add('col-ID');
