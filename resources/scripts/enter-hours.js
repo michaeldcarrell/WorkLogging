@@ -14,7 +14,7 @@ let hourUIController = (function() {
                 hour_type_name: document.querySelector('.hour-type-input').value,
                 contact_type_id: document.getElementById('.hour-type-input').value,
                 contact_type_name: contactTypeDDOptions[contactTypeDDOptions.selectedIndex].text,
-                hours_completed_on: document.getElementById('inpt-date').innerHTML,
+                hours_completed_on: document.getElementById('inpt-date').value,
                 hours: document.querySelector('.hours-gained-input').value,
                 notes: document.querySelector('.notes-input').value,
                 acceptableInput: function() {
