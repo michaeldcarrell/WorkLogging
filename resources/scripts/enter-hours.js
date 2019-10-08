@@ -9,26 +9,35 @@ if (document.cookie === '') {
 let hourUIController = (function() {
     return {
         getHourInputs: function() {
+            let contactTypeDDOptions = document.querySelector('contact_type_drop_down');
             return {
                 hour_type_name: document.querySelector('.hour-type-input').value,
-                hours_completed_on: document.querySelector('.hour-date-input').value,
+                contact_type_id: document.getElementById('.hour-type-input').value,
+                contact_type_name: contactTypeDDOptions[contactTypeDDOptions.selectedIndex].text,
+                hours_completed_on: document.getElementById('inpt-date').innerHTML,
                 hours: document.querySelector('.hours-gained-input').value,
                 notes: document.querySelector('.notes-input').value,
                 acceptableInput: function() {
                     return !(this.hour_type_name === '' ||
+                        this.contact_type_id === '' ||
                         this.hours_completed_on === '' ||
                         this.hours === '');
                 }
             }
         },
         getModalInputs: function() {
+            let contactTypeDDOptions = document.querySelector('contact_type_drop_down-modal');
+
             return {
                 hour_type_name: document.getElementById('hour_type_drop_down-modal').value,
+                contact_type_id: document.getElementById('contact_type_drop_down-modal').value,
+                contact_type_name: contactTypeDDOptions[contactTypeDDOptions.selectedIndex].text,
                 hours_completed_on: document.getElementById('inpt-date-modal').value,
                 hours: document.getElementById('inpt-hours-modal').value,
                 notes: document.getElementById('inpt-notes-modal').value,
                 acceptableInput: function() {
                     return !(this.hour_type_name === '' ||
+                        this.contact_type_id === '' ||
                         this.hours_completed_on === '' ||
                         this.hours === '');
                 }
@@ -40,15 +49,17 @@ let hourUIController = (function() {
             let id = row.insertCell(0);
             let date = row.insertCell(1);
             let type = row.insertCell(2);
-            let hours = row.insertCell(3);
-            let notes = row.insertCell(4);
-            let del = row.insertCell(5);
+            let contact = row.insertCell(3);
+            let hours = row.insertCell(4);
+            let notes = row.insertCell(6);
+            let del = row.insertCell(6);
             id.innerHTML = hourInputs['_id'];
             id.classList.add('col-ID');
             row.id = 'row-' + hourInputs['_id'];
             date.innerHTML = hourInputs['hours_completed_on'].slice(0, 10);
             type.innerHTML = hourInputs['hour_type_name'];
             hours.innerHTML = hourInputs['hours'];
+            contact.innerHTML = hourInputs['contact_type_name']['contact_type_name'];
             notes.innerHTML = hourInputs['notes'];
             del.innerHTML = '<button type="button" class="btn btn-danger btn-sm row-btn" id="del-' + hourInputs['_id'] + '">' +
                 '    <span class="row-del-spn"><b>X</b></span>' +
@@ -107,6 +118,7 @@ let hourUIController = (function() {
                     document.getElementById('modal-table-id-col').innerHTML = data['_id'];
                     document.getElementById('modal-table-date').innerHTML = data['hours_completed_on'].slice(0, 10);
                     document.getElementById('modal-table-hour-type').innerHTML = data['hour_type_name'];
+                    document.getElementById('modal-table-contact-type').innerHTML = data['contact_type_name']['contact_type_name'];
                     document.getElementById('modal-table-hours').innerHTML = data['hours'];
                     document.getElementById('modal-table-notes').innerHTML = data['notes'];
 
@@ -163,8 +175,9 @@ let hourController = (function(UICtrl) {
             updateRow[0].innerHTML = data['_id'];
             updateRow[1].innerHTML = data['hours_completed_on'].slice(0, 10);
             updateRow[2].innerHTML = data['hour_type_name'];
-            updateRow[3].innerHTML = data['hours'];
-            updateRow[4].innerHTML = data['notes'];
+            updateRow[3].innerHTML = data['contact_type_name']['contact_type_name'];
+            updateRow[4].innerHTML = data['hours'];
+            updateRow[5].innerHTML = data['notes'];
         })
     };
 
