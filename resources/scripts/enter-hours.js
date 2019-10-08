@@ -11,7 +11,7 @@ let hourUIController = (function() {
         getHourInputs: function() {
             let contactTypeDDOptions = document.getElementById('contact_type_drop_down');
             return {
-                hour_type_name: document.getElementById('.hour_type_drop_down').value,
+                hour_type_name: document.getElementById('hour_type_drop_down').value,
                 contact_type_id: document.getElementById('contact_type_drop_down').value,
                 contact_type_name: contactTypeDDOptions[contactTypeDDOptions.selectedIndex].text,
                 hours_completed_on: document.getElementById('inpt-date').value,
