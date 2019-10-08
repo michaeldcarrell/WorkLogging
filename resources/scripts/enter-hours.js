@@ -207,7 +207,7 @@ let hourController = (function(UICtrl) {
     });
 
     document.getElementById('submit-edit-modal').addEventListener('click', function(event) {
-        let currentRowID = document.getElementById('modal-table-id-col').value;
+        let currentRowID = document.getElementById('modal-table-id-col').innerHTML;
         if (UICtrl.getModalInputs().acceptableInput()) {
             ctrlEditHours(currentRowID);
         }
