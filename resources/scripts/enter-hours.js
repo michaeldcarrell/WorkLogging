@@ -220,10 +220,11 @@ let hourController = (function(UICtrl) {
     });
 
     document.getElementById('submit-edit-modal').addEventListener('click', function(event) {
+        let hour_id = document.getElementById('modal-table-id-col').innerHTML;
         console.log(UICtrl.getModalInputs().acceptableInput());
         if (UICtrl.getModalInputs().acceptableInput()) {
             console.log(UICtrl.getModalInputs());
-            ctrlEditHours(UICtrl.getModalInputs());
+            ctrlEditHours(hour_id);
         }
         $('#hourSubmissionModal').modal('toggle');
     });
