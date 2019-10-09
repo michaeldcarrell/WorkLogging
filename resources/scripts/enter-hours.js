@@ -26,7 +26,7 @@ let hourUIController = (function() {
             }
         },
         getModalInputs: function() {
-            let contactTypeDDOptions = document.querySelector('contact_type_drop_down-modal');
+            let contactTypeDDOptions = document.getElementById('contact_type_drop_down-modal');
 
             return {
                 hour_type_name: document.getElementById('hour_type_drop_down-modal').value,
