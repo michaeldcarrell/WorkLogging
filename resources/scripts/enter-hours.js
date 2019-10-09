@@ -220,7 +220,9 @@ let hourController = (function(UICtrl) {
     });
 
     document.getElementById('submit-edit-modal').addEventListener('click', function(event) {
+        console.log(UICtrl.getModalInputs().acceptableInput());
         if (UICtrl.getModalInputs().acceptableInput()) {
+            console.log(UICtrl.getModalInputs());
             ctrlEditHours(UICtrl.getModalInputs());
         }
         $('#hourSubmissionModal').modal('toggle');
