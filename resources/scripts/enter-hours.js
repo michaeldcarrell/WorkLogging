@@ -171,8 +171,8 @@ let hourController = (function(UICtrl) {
         }).then(
             (res) => res.json()
         ).then(function(data){
+            console.log(data);
             let updateRow = document.getElementById('row-' + data['_id']).children;
-            updateRow[0].innerHTML = data['_id'];
             updateRow[1].innerHTML = data['hours_completed_on'].slice(0, 10);
             updateRow[2].innerHTML = data['hour_type_name'];
             updateRow[3].innerHTML = data['contact_type_name']['contact_type_name'];
@@ -224,6 +224,7 @@ let hourController = (function(UICtrl) {
         console.log(UICtrl.getModalInputs().acceptableInput());
         if (UICtrl.getModalInputs().acceptableInput()) {
             console.log(UICtrl.getModalInputs());
+            console.log(hour_id);
             ctrlEditHours(hour_id);
         }
         $('#hourSubmissionModal').modal('toggle');
