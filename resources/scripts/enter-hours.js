@@ -158,6 +158,7 @@ let hourController = (function(UICtrl) {
 
     let ctrlEditHours = function(hourID) {
         let input = UICtrl.getModalInputs();
+        delete input['contact_type_name'];
         let url = 'https://hour-logging-api.herokuapp.com/hours/' + hourID;
         fetch(url, {
             method:'PATCH',
