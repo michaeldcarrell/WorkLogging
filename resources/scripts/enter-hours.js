@@ -59,7 +59,7 @@ let hourUIController = (function() {
             date.innerHTML = hourInputs['hours_completed_on'].slice(0, 10);
             type.innerHTML = hourInputs['hour_type_name'];
             hours.innerHTML = hourInputs['hours'];
-            console.log(typeof hourInputs['contact_type_name']['contact_type_name']);
+            console.log(typeof hourInputs['contact_type_name']);
             if (hourInputs['contact_type_name']['contact_type_name']) {
                 contact.innerHTML = hourInputs['contact_type_name']['contact_type_name'];
             } else {
