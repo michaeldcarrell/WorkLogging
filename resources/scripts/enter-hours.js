@@ -128,8 +128,8 @@ let hourUIController = (function() {
                     document.getElementById('modal-table-id-col').innerHTML = data['_id'];
                     document.getElementById('modal-table-date').innerHTML = data['hours_completed_on'].slice(0, 10);
                     document.getElementById('modal-table-hour-type').innerHTML = data['hour_type_name'];
-                    if (typeof data['contact_type_name'] !== undefined) {
-                        if (typeof data['contact_type_name']['contact_type_name'] !== undefined) {
+                    if (typeof data['contact_type_name'] != 'undefined') {
+                        if (typeof data['contact_type_name']['contact_type_name'] != 'undefined') {
                             document.getElementById('modal-table-contact-type').innerHTML = data['contact_type_name']['contact_type_name'];
                         } else {
                             document.getElementById('modal-table-contact-type').innerHTML = ''
@@ -193,8 +193,8 @@ let hourController = (function(UICtrl) {
             let updateRow = document.getElementById('row-' + data['_id']).children;
             updateRow[1].innerHTML = data['hours_completed_on'].slice(0, 10);
             updateRow[2].innerHTML = data['hour_type_name'];
-            if (typeof data['contact_type_name'] !== undefined) {
-                if (typeof data['contact_type_name']['contact_type_name'] !== undefined) {
+            if (typeof data['contact_type_name'] != 'undefined') {
+                if (typeof data['contact_type_name']['contact_type_name'] != 'undefined') {
                     updateRow[3].innerHTML = data['contact_type_name']['contact_type_name']
                 } else {
                     updateRow[3].innerHTML = '';
