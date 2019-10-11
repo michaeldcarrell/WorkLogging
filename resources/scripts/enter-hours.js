@@ -61,8 +61,8 @@ let hourUIController = (function() {
             hours.innerHTML = hourInputs['hours'];
             console.log(hourInputs);
             console.log(typeof hourInputs['contact_type_name'] != 'undefined');
-            if (typeof hourInputs['contact_type_name'] !== undefined) {
-                if (typeof hourInputs['contact_type_name']['contact_type_name'] !== undefined) {
+            if (typeof hourInputs['contact_type_name'] != 'undefined') {
+                if (typeof hourInputs['contact_type_name']['contact_type_name'] != 'undefined') {
                     contact.innerHTML = hourInputs['contact_type_name']['contact_type_name'];
                 } else {
                     contact.innerHTML = ''
