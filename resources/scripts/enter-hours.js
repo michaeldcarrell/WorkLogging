@@ -59,7 +59,11 @@ let hourUIController = (function() {
             date.innerHTML = hourInputs['hours_completed_on'].slice(0, 10);
             type.innerHTML = hourInputs['hour_type_name'];
             hours.innerHTML = hourInputs['hours'];
-            contact.innerHTML = hourInputs['contact_type_name']['contact_type_name'];
+            if (hourInputs['contact_type_name']['contact_type_name']) {
+                contact.innerHTML = hourInputs['contact_type_name']['contact_type_name'];
+            } else {
+                contact.innerHTML = '';
+            }
             notes.innerHTML = hourInputs['notes'];
             del.innerHTML = '<button type="button" class="btn btn-danger btn-sm row-btn" id="del-' + hourInputs['_id'] + '">' +
                 '    <span class="row-del-spn"><b>X</b></span>' +
@@ -118,7 +122,11 @@ let hourUIController = (function() {
                     document.getElementById('modal-table-id-col').innerHTML = data['_id'];
                     document.getElementById('modal-table-date').innerHTML = data['hours_completed_on'].slice(0, 10);
                     document.getElementById('modal-table-hour-type').innerHTML = data['hour_type_name'];
-                    document.getElementById('modal-table-contact-type').innerHTML = data['contact_type_name']['contact_type_name'];
+                    if (data['contact_type_name']['contact_type_name']) {
+                        document.getElementById('modal-table-contact-type').innerHTML = data['contact_type_name']['contact_type_name'];
+                    } else {
+                        document.getElementById('modal-table-contact-type').innerHTML = ''
+                    }
                     document.getElementById('modal-table-hours').innerHTML = data['hours'];
                     document.getElementById('modal-table-notes').innerHTML = data['notes'];
 
@@ -175,6 +183,11 @@ let hourController = (function(UICtrl) {
             let updateRow = document.getElementById('row-' + data['_id']).children;
             updateRow[1].innerHTML = data['hours_completed_on'].slice(0, 10);
             updateRow[2].innerHTML = data['hour_type_name'];
+            if (data['contact_type_name']['contact_type_name']) {
+                updateRow[3].innerHTML = data['contact_type_name']['contact_type_name']
+            } else {
+                updateRow[3].innerHTML = '';
+            }
             updateRow[3].innerHTML = data['contact_type_name']['contact_type_name'];
             updateRow[4].innerHTML = data['hours'];
             updateRow[5].innerHTML = data['notes'];
