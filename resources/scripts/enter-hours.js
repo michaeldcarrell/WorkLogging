@@ -66,6 +66,7 @@ let hourUIController = (function() {
                 } else {
                     contact.innerHTML = ''
                 }
+            } else {
                 contact.innerHTML = ''
             }
             notes.innerHTML = hourInputs['notes'];
@@ -132,6 +133,7 @@ let hourUIController = (function() {
                         } else {
                             document.getElementById('modal-table-contact-type').innerHTML = ''
                         }
+                    } else {
                         document.getElementById('modal-table-contact-type').innerHTML = ''
                     }
                     document.getElementById('modal-table-hours').innerHTML = data['hours'];
@@ -196,6 +198,7 @@ let hourController = (function(UICtrl) {
                 } else {
                     updateRow[3].innerHTML = '';
                 }
+            } else {
                 updateRow[3].innerHTML = '';
             }
             updateRow[3].innerHTML = data['contact_type_name']['contact_type_name'];
