@@ -200,7 +200,6 @@ let hourController = (function(UICtrl) {
             } else {
                 updateRow[3].innerHTML = '';
             }
-            updateRow[3].innerHTML = data['contact_type_name']['contact_type_name'];
             updateRow[4].innerHTML = data['hours'];
             updateRow[5].innerHTML = data['notes'];
         })
