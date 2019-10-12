@@ -332,10 +332,22 @@ let hourController = (function(UICtrl) {
         })
     };
 
+    let setInptDate = function() {
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
+
+        today = today = yyyy + '-' + mm + '-' + dd;
+
+        document.getElementById('inpt-date').value = today;
+    };
+
     let init = function() {
         initHourTable();
         initHourTypesDD();
         initContactTypesDD();
+        setInptDate();
     }();
 
 })(hourUIController);
