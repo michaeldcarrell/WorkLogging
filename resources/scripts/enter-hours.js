@@ -338,7 +338,7 @@ let hourController = (function(UICtrl) {
         let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         let yyyy = today.getFullYear();
 
-        today = today = yyyy + '-' + mm + '-' + dd;
+        today = yyyy + '-' + mm + '-' + dd;
 
         document.getElementById('inpt-date').value = today;
     };
