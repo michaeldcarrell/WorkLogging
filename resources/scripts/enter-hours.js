@@ -201,19 +201,19 @@ let hourController = (function(UICtrl) {
             let updateRow = document.getElementById('row-' + data['_id']).children;
             console.log(data);
             console.log(input);
-            updateRow[1].innerHTML = data['hours_completed_on'].slice(0, 10);
-            updateRow[2].innerHTML = data['hour_type_name'];
-            if (typeof data['contact_type_name'] != 'undefined' && data['contact_type_name'] !== null) {
-                if (typeof data['contact_type_name']['contact_type_name'] != 'undefined') {
-                    updateRow[3].innerHTML = data['contact_type_name']['contact_type_name']
+            updateRow[1].innerHTML = input['hours_completed_on'];
+            updateRow[2].innerHTML = input['hour_type_name'];
+            if (typeof input['contact_type_name'] != 'undefined' && input['contact_type_name'] !== null) {
+                if (typeof input['contact_type_name']['contact_type_name'] != 'undefined') {
+                    updateRow[3].innerHTML = input['contact_type_name']['contact_type_name']
                 } else {
                     updateRow[3].innerHTML = '';
                 }
             } else {
                 updateRow[3].innerHTML = '';
             }
-            updateRow[4].innerHTML = data['hours'];
-            updateRow[5].innerHTML = data['notes'];
+            updateRow[4].innerHTML = input['hours'];
+            updateRow[5].innerHTML = input['notes'];
         })
     };
 
