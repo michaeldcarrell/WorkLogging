@@ -199,8 +199,6 @@ let hourController = (function(UICtrl) {
             (res) => res.json()
         ).then(function(data){
             let updateRow = document.getElementById('row-' + data['_id']).children;
-            console.log(data);
-            console.log(input);
             updateRow[1].innerHTML = input['hours_completed_on'];
             updateRow[2].innerHTML = input['hour_type_name'];
             if (typeof input['contact_type_name'] != 'undefined' && input['contact_type_name'] !== null) {
