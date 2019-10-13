@@ -23,3 +23,18 @@
     float: right;
     margin: 2px;
 }
+
+.login-actions {
+    height: 38px;
+    position: relative;
+}
+
+.form-sign-up {
+    font-size: small;
+    position: absolute;
+    top: 0;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    display: inline-block;
+
+}
