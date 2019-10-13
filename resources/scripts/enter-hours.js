@@ -178,8 +178,13 @@ let hourController = (function(UICtrl) {
 
     let ctrlEditHours = function(hourID) {
         let input = UICtrl.getModalInputs();
-        let editedInput = input;
-        delete editedInput['contact_type_name'];
+        let editedInput = {
+            hour_type_name: input.hour_type_name,
+            contact_type_id: input.contact_type_id,
+            hours_completed_on: input.hours_completed_on,
+            hours: input.hours,
+            notes: input.notes
+        };
         let url = 'https://hour-logging-api.herokuapp.com/hours/' + hourID;
         fetch(url, {
             method:'PATCH',
@@ -194,7 +199,6 @@ let hourController = (function(UICtrl) {
             (res) => res.json()
         ).then(function(data){
             let updateRow = document.getElementById('row-' + data['_id']).children;
-            console.log(updateRow);
             console.log(data);
             console.log(input);
             updateRow[1].innerHTML = data['hours_completed_on'].slice(0, 10);
