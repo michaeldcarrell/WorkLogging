@@ -33,7 +33,9 @@ let hourUIController = (function() {
             return {
                 hour_type_name: document.getElementById('hour_type_drop_down-modal').value,
                 contact_type_id: document.getElementById('contact_type_drop_down-modal').value,
-                contact_type_name: contactTypeDDOptions[contactTypeDDOptions.selectedIndex].text,
+                contact_type_name: {
+                    contact_type_name: contactTypeDDOptions[contactTypeDDOptions.selectedIndex].text
+                },
                 hours_completed_on: document.getElementById('inpt-date-modal').value,
                 hours: document.getElementById('inpt-hours-modal').value,
                 notes: document.getElementById('inpt-notes-modal').value,
