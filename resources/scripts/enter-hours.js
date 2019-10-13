@@ -1,9 +1,5 @@
 if (document.cookie === '') {
     document.location.href = 'login'
-} else {
-    log_switch = document.querySelector('.log-toggle');
-    log_switch.innerHTML = 'Logout';
-    log_switch.classList.add('logout');
 }
 
 let hourUIController = (function() {
