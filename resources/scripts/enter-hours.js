@@ -238,7 +238,7 @@ let hourController = (function(UICtrl) {
         }
     });
 
-    document.querySelector('.logout').addEventListener('click', function(event) {
+    document.getElementById('account-action-logout').addEventListener('click', function(event) {
         logOutUser();
         document.cookie = '';
     });

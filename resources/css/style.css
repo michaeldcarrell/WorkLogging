@@ -36,5 +36,8 @@
     margin-left: 5%;
     margin-bottom: 1%;
     display: inline-block;
+}
 
+.account-action-logout {
+    color: red;
 }
