@@ -6,6 +6,80 @@
     <script src="resources/scripts/reporting.js"></script>
 </head>
 <body>
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Work Logging</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Reporting</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="enter-hours.html">Add Hours</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="enter-hour-types.html">Add Hour Types</a>
+            </li>
+            <li class="nav-item dropdown">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="account-option-dropdown"></button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#">Account</a>
+                    <a class="dropdown-item" href="#">Feedback</a>
+                    <div class="dropdown-divider"></div>
+                    <div class="logout-container">
+                        <button type="button" class="btn btn-danger dropdown-item account-action-logout" id="account-action-logout">
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid form-container">
+    <div class="row">
+        <div class="form-group col-3">
+            <label for="hour_type_drop_down" class="form-text text-muted">Type</label>
+            <select class="form-unit hour-type-input form-control" id="hour_type_drop_down"></select>
+        </div>
+        <div class="form-group col-">
+            <label for="contact_type_drop_down" class="form-text text-muted">Contact</label>
+            <select class="form-unit hour-type-input form-control" id="contact_type_drop_down"></select>
+        </div>
+        <div class="form-group col">
+            <label for="inpt-date" class="form-text text-muted">Date</label>
+            <input type="date" class="form-unit form-control hour-date-input" id="inpt-date">
+        </div>
+        <div class="form-group col">
+            <label for="inpt-hours" class="form-text text-muted">Hours</label>
+            <input type="number" class="form-unit form-control hours-gained-input" id="inpt-hours">
+        </div>
+        <div class="form-group col-10">
+            <label for="inpt-notes" class="form-text text-muted">Notes</label>
+            <input type="text" class="form-unit form-control notes-input" id="inpt-notes">
+        </div>
+        <div class="form-group col btn-submit-hours">
+            <button type="submit" class="btn btn-dark submit-input">Submit</button>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <table class="table table-dark" id="table-type-agg">
+        <tr class="header">
+            <th>Type</th>
+            <th class="table-col-hours">Hours</th>
+        </tr>
+    </table>
+</div>
+<div class="container-fluid">
+    <table class="table table-dark" id="table-contact-agg">
+        <tr>
+            <th>Contact</th>
+            <th>Hours</th>
+        </tr>
+    </table>
+</div>
 </body>
 </html>
