@@ -65,3 +65,7 @@
 .table-col-hours {
     width: 5vw;
 }
+
+.table-col-hours-text {
+    text-align: center;
+}
