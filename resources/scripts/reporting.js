@@ -25,7 +25,7 @@ let controller = (function(UICtrl) {
             for (let hoursAgged = 0; hoursAgged < data.length; hoursAgged++) {
                 console.log(reportedHourTypes[data[hoursAgged]['hour_type_name']]);
                 console.log(typeof reportedHourTypes[data[hoursAgged]['hour_type_name']]);
-                if (!reportedHourTypes[data[hoursAgged]['hour_type_name']] === undefined) {
+                if (!reportedHourTypes.hasOwnProperty(data[hoursAgged]['hour_type_name'])) {
                     console.log('exists');
                 } else {
                     console.log('dont exist');
