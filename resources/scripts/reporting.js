@@ -23,8 +23,12 @@ let controller = (function(UICtrl) {
             console.log(data);
             let reportedHourTypes = {};
             for (let hoursAgged = 0; hoursAgged < data.length; hoursAgged++) {
-                console.log(reportedHourTypes);
-                console.log(data[hoursAgged]['hours']);
+                console.log(reportedHourTypes[data[hoursAgged]['hour_type_name']]);
+                if (reportedHourTypes[data[hoursAgged]['hour_type_name']]) {
+                    console.log('exists');
+                } else {
+                    console.log('dont exist');
+                }
                 reportedHourTypes[data[hoursAgged]['hour_type_name']] += data[hoursAgged]['hours'];
             }
 
