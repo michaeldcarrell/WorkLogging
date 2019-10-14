@@ -32,7 +32,11 @@ let controller = (function(UICtrl) {
                 if (data[hoursAgged].hasOwnProperty('contact_type_name')) {
                     if (data[hoursAgged]['contact_type_name'] !== null) {
                         if (data[hoursAgged]['contact_type_name'].hasOwnProperty('contact_type_name')) {
-                            reportedHourContact[data[hoursAgged]['contact_type_name']['contact_type_name']] = data[hoursAgged]['hours'];
+                            if (reportedHourContact.hasOwnProperty(data[hoursAgged]['contact_type_name']['contact_type_name'])){
+                                reportedHourContact[data[hoursAgged]['contact_type_name']['contact_type_name']] += data[hoursAgged]['hours'];
+                            } else {
+                                reportedHourContact[data[hoursAgged]['contact_type_name']['contact_type_name']] = data[hoursAgged]['hours'];
+                            }
                         }
                     }
                 }
