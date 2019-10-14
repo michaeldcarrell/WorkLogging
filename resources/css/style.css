@@ -41,3 +41,7 @@
 .account-action-logout {
     color: red;
 }
+
+#account-action-logout {
+    color: red;
+}
