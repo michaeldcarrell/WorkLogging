@@ -336,6 +336,27 @@ let hourController = (function(UICtrl) {
         })
     };
 
+    let initAccountDetails = async () => {
+        let userDropDown = document.getElementById('account-option-dropdown');
+        let url = 'https://hour-logging-api.herokuapp.com/users/me';
+        fetch(url, {
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + document.cookie,
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Access-Control-Allow-Credentials': 'true'
+            }
+        }).then(
+            (res) => res.json()
+        ).then(function(data) {
+            userDropDown.innerHTML = data['username'];
+        }).catch(function(e) {
+            console.log(e);
+            userDropDown.innerHTML = '';
+        })
+    };
+
     let setInptDate = function() {
         let today = new Date();
         let dd = String(today.getDate()).padStart(2, '0');
@@ -352,6 +373,7 @@ let hourController = (function(UICtrl) {
         initHourTypesDD();
         initContactTypesDD();
         setInptDate();
+        initAccountDetails();
     }();
 
 })(hourUIController);
