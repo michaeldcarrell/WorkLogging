@@ -38,10 +38,14 @@
     display: inline-block;
 }
 
-.account-action-logout {
-    color: red;
+#account-action-logout {
+    color: white;
+    padding-left: 14px;
+    padding-right: 14px;
+    background: #dc3545;
 }
 
-#account-action-logout {
-    color: red;
+.logout-container {
+    padding-right: 10px;
+    padding-left: 10px;
 }
