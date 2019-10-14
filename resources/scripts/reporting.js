@@ -7,7 +7,7 @@ let reportTypeUIController = (function() {
 })();
 
 let controller = (function(UICtrl) {
-    let initHourTable = async (res, req) => {
+    let initTypeAggTable = async (res, req) => {
         let url = 'https://hour-logging-api.herokuapp.com/hours/active';
         fetch(url, {
             method: 'get',
@@ -22,14 +22,23 @@ let controller = (function(UICtrl) {
         ).then(function (data) {
             console.log(data);
             let reportedHourTypes = {};
+            let reportedHourContact = {};
             for (let hoursAgged = 0; hoursAgged < data.length; hoursAgged++) {
                 if (reportedHourTypes.hasOwnProperty(data[hoursAgged]['hour_type_name'])) {
                     reportedHourTypes[data[hoursAgged]['hour_type_name']] += data[hoursAgged]['hours'];
                 } else {
                     reportedHourTypes[data[hoursAgged]['hour_type_name']] = data[hoursAgged]['hours'];
                 }
+                if (data[hoursAgged].hasOwnProperty('contact_type_name')) {
+                    if (data[hoursAgged]['contact_type_name'] !== null) {
+                        if (data[hoursAgged]['contact_type_name'].hasOwnProperty('contact_type_name')) {
+                            reportedHourContact[data[hoursAgged]['contact_type_name']['contact_type_name']] = data[hoursAgged]['hours'];
+                        }
+                    }
+                }
             }
             console.log(reportedHourTypes);
+            console.log(reportedHourContact);
         }).catch(function(e){
             console.log(e)
         })
@@ -37,6 +46,6 @@ let controller = (function(UICtrl) {
 
 
     let initReportingTable = function() {
-        initHourTable();
+        initTypeAggTable();
     }()
 })(reportTypeUIController);
