@@ -25,12 +25,12 @@ let controller = (function(UICtrl) {
             for (let hoursAgged = 0; hoursAgged < data.length; hoursAgged++) {
                 console.log(reportedHourTypes[data[hoursAgged]['hour_type_name']]);
                 console.log(typeof reportedHourTypes[data[hoursAgged]['hour_type_name']]);
-                if (!typeof reportedHourTypes[data[hoursAgged]['hour_type_name']] === "undefined") {
+                if (!reportedHourTypes[data[hoursAgged]['hour_type_name']] === undefined) {
                     console.log('exists');
                 } else {
                     console.log('dont exist');
                 }
-                reportedHourTypes[data[hoursAgged]['hour_type_name']] += data[hoursAgged]['hours'];
+                reportedHourTypes[data[hoursAgged]['hour_type_name']] = data[hoursAgged]['hours'];
             }
 
             console.log(reportedHourTypes);
