@@ -21,14 +21,13 @@ let controller = (function(UICtrl) {
             (res) => res.json()
         ).then(function (data) {
             console.log(data);
-            let reportedHourTypes = [];
-            for (let typesAdded = 0; typesAdded < data.length; typesAdded++) {
-                if (!reportedHourTypes.includes(data[typesAdded]['hour_type_name'])) {
-                    console.log(data[typesAdded]);
-                    console.log(data[typesAdded]['hour_type_name']);
-                    reportedHourTypes.push(data[typesAdded]['hour_type_name']);
-                }
+            let reportedHourTypes = {};
+            for (let hoursAgged = 0; hoursAgged < data.length; hoursAgged++) {
+                console.log(reportedHourTypes);
+                console.log(data[hoursAgged]['hours']);
+                reportedHourTypes[data[hoursAgged]['hour_type_name']] += data[hoursAgged]['hours'];
             }
+
             console.log(reportedHourTypes);
         }).catch(function(e){
             console.log(e)
