@@ -99,7 +99,7 @@ let controller = (function(hourCtrl, UICtrl) {
         });
     };
 
-    document.getElementById('account-option-dropdown').addEventListener('click', function(event) {
+    document.getElementById('account-action-logout').addEventListener('click', function(event) {
         logOutUser();
         document.cookie = '';
         document.location.href = 'login';
