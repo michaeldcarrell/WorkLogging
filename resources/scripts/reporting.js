@@ -23,9 +23,11 @@ let controller = (function(UICtrl) {
             console.log(data);
             let reportedHourTypes = [];
             for (let typesAdded = 0; typesAdded < data.length; typesAdded++) {
-                console.log(data[typesAdded]);
-                console.log(data[typesAdded]['hour_type_name']);
-                reportedHourTypes.push(data[typesAdded]['hour_type_name']);
+                if (!reportedHourTypes.includes(data[typesAdded]['hour_type_name'])) {
+                    console.log(data[typesAdded]);
+                    console.log(data[typesAdded]['hour_type_name']);
+                    reportedHourTypes.push(data[typesAdded]['hour_type_name']);
+                }
             }
             console.log(reportedHourTypes);
         }).catch(function(e){
