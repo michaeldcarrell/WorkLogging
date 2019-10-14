@@ -49,3 +49,19 @@
     padding-right: 10px;
     padding-left: 10px;
 }
+
+.table-col-date {
+    width: 9vw;
+}
+
+.table-col-contact {
+    width: 8vw;
+}
+
+.table-col-buttons {
+    width: 12vw;
+}
+
+.table-col-hours {
+    width: 5vw;
+}
