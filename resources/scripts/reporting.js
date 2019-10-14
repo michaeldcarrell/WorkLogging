@@ -23,16 +23,12 @@ let controller = (function(UICtrl) {
             console.log(data);
             let reportedHourTypes = {};
             for (let hoursAgged = 0; hoursAgged < data.length; hoursAgged++) {
-                console.log(reportedHourTypes[data[hoursAgged]['hour_type_name']]);
-                console.log(typeof reportedHourTypes[data[hoursAgged]['hour_type_name']]);
-                if (!reportedHourTypes.hasOwnProperty(data[hoursAgged]['hour_type_name'])) {
-                    console.log('exists');
+                if (reportedHourTypes.hasOwnProperty(data[hoursAgged]['hour_type_name'])) {
+                    reportedHourTypes[data[hoursAgged]['hour_type_name']] += data[hoursAgged]['hours'];
                 } else {
-                    console.log('dont exist');
+                    reportedHourTypes[data[hoursAgged]['hour_type_name']] = data[hoursAgged]['hours'];
                 }
-                reportedHourTypes[data[hoursAgged]['hour_type_name']] = data[hoursAgged]['hours'];
             }
-
             console.log(reportedHourTypes);
         }).catch(function(e){
             console.log(e)
