@@ -48,8 +48,58 @@ let controller = (function(UICtrl) {
         })
     };
 
+    let initContactTypesDD = async () => {
+        let dropDown = document.getElementById('contact_type_drop_down');
+        let url = 'https://hour-logging-api.herokuapp.com/contact_types';
+        fetch(url, {
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + document.cookie,
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Access-Control-Allow-Credentials': 'true'
+            }
+        }).then(
+            (res) => res.json()
+        ).then(function(data) {
+            for (let rows_built = 0; rows_built < data.length; rows_built++) {
+                let newOption = data[rows_built];
+                let option = document.createElement("option");
+                option.textContent = newOption['contact_type_name'];
+                option.value = newOption['_id'];
+                dropDown.appendChild(option);
+            }
+        })
+    };
+
+    let initHourTypesDD = async () => {
+        let dropDown = document.getElementById('hour_type_drop_down');
+        let url = 'https://hour-logging-api.herokuapp.com/hour_types/active';
+        fetch(url, {
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + document.cookie,
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Access-Control-Allow-Credentials': 'true'
+            }
+        }).then(
+            (res) => res.json()
+        ).then(function(data) {
+            for (let rows_built = 0; rows_built < data.length; rows_built++) {
+                let newOption = data[rows_built]['hour_type_name'];
+                let option = document.createElement("option");
+                option.textContent = newOption;
+                option.value = newOption;
+                dropDown.appendChild(option);
+            }
+        })
+    };
+
 
     let initReportingTable = function() {
+        initContactTypesDD();
         initTypeAggTable();
+        initHourTypesDD();
     }()
 })(reportTypeUIController);
