@@ -93,7 +93,8 @@ let controller = (function(UICtrl) {
                 option.value = newOption;
                 dropDown.appendChild(option);
             }
-        })
+        });
+        $('.selectpicker').selectpicker('render');
     };
 
     let initAccountDetails = async () => {
