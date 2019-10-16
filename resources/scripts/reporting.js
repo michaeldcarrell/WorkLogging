@@ -3,10 +3,38 @@ if (document.cookie === '') {
 }
 
 let reportTypeUIController = (function() {
-
 })();
 
 let controller = (function(UICtrl) {
+
+    let aggHours = function(data) {
+        let reportedHourTypes = {};
+        let reportedHourContact = {};
+        for (let hoursAgged = 0; hoursAgged < data.length; hoursAgged++) {
+            if (reportedHourTypes.hasOwnProperty(data[hoursAgged]['hour_type_name'])) {
+                reportedHourTypes[data[hoursAgged]['hour_type_name']] += data[hoursAgged]['hours'];
+            } else {
+                reportedHourTypes[data[hoursAgged]['hour_type_name']] = data[hoursAgged]['hours'];
+            }
+            if (data[hoursAgged].hasOwnProperty('contact_type_name')) {
+                if (data[hoursAgged]['contact_type_name'] !== null) {
+                    if (data[hoursAgged]['contact_type_name'].hasOwnProperty('contact_type_name')) {
+                        if (reportedHourContact.hasOwnProperty(data[hoursAgged]['contact_type_name']['contact_type_name'])){
+                            reportedHourContact[data[hoursAgged]['contact_type_name']['contact_type_name']] += data[hoursAgged]['hours'];
+                        } else {
+                            reportedHourContact[data[hoursAgged]['contact_type_name']['contact_type_name']] = data[hoursAgged]['hours'];
+                        }
+                    }
+                }
+            }
+        }
+        return {
+            reportedHourTypes: reportedHourTypes,
+            reportedHourContact: reportedHourContact
+        }
+    };
+
+
     let initTypeAggTable = async (res, req) => {
         let url = 'https://hour-logging-api.herokuapp.com/hours/active';
         fetch(url, {
@@ -21,28 +49,8 @@ let controller = (function(UICtrl) {
             (res) => res.json()
         ).then(function (data) {
             console.log(data);
-            let reportedHourTypes = {};
-            let reportedHourContact = {};
-            for (let hoursAgged = 0; hoursAgged < data.length; hoursAgged++) {
-                if (reportedHourTypes.hasOwnProperty(data[hoursAgged]['hour_type_name'])) {
-                    reportedHourTypes[data[hoursAgged]['hour_type_name']] += data[hoursAgged]['hours'];
-                } else {
-                    reportedHourTypes[data[hoursAgged]['hour_type_name']] = data[hoursAgged]['hours'];
-                }
-                if (data[hoursAgged].hasOwnProperty('contact_type_name')) {
-                    if (data[hoursAgged]['contact_type_name'] !== null) {
-                        if (data[hoursAgged]['contact_type_name'].hasOwnProperty('contact_type_name')) {
-                            if (reportedHourContact.hasOwnProperty(data[hoursAgged]['contact_type_name']['contact_type_name'])){
-                                reportedHourContact[data[hoursAgged]['contact_type_name']['contact_type_name']] += data[hoursAgged]['hours'];
-                            } else {
-                                reportedHourContact[data[hoursAgged]['contact_type_name']['contact_type_name']] = data[hoursAgged]['hours'];
-                            }
-                        }
-                    }
-                }
-            }
-            console.log(reportedHourTypes);
-            console.log(reportedHourContact);
+            let aggedHours = aggHours(data);
+            console.log(aggedHours);
         }).catch(function(e){
             console.log(e)
         })
@@ -126,6 +134,10 @@ let controller = (function(UICtrl) {
             userDropDown.innerHTML = '';
         });
     };
+
+    document.getElementById('filter-submit').addEventListener('click', function (event) {
+        
+    });
 
 
     let initReportingTable = function() {
