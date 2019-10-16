@@ -94,6 +94,11 @@ let controller = (function(UICtrl) {
                 dropDown.appendChild(option);
             }
         });
+        $('.selectpicker').selectpicker('render'); //render first so the getElement has something to get
+        document.getElementById('dd-type-container').getElementsByTagName('button')[0].addEventListener('click', function(event) {
+            let spClass = $('.selectpicker');
+            spClass.selectpicker('refresh');
+        });
     };
 
     let initAccountDetails = async () => {
@@ -114,7 +119,7 @@ let controller = (function(UICtrl) {
         }).catch(function(e) {
             console.log(e);
             userDropDown.innerHTML = '';
-        })
+        });
     };
 
 
