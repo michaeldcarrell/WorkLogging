@@ -94,7 +94,11 @@ let controller = (function(UICtrl) {
                 dropDown.appendChild(option);
             }
         });
-        document.getElementById()
+        document.getElementById('dd-type-container').getElementsByTagName('button')[0].addEventListener('click', function(event) {
+            let spClass = $('.selectpicker');
+            spClass.selectpicker('render');
+            spClass.selectpicker('refresh');
+        })
     };
 
     let initAccountDetails = async () => {
