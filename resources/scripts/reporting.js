@@ -94,7 +94,7 @@ let controller = (function(UICtrl) {
                 dropDown.appendChild(option);
             }
         });
-        $('.selectpicker').selectpicker('refresh');
+        document.getElementById()
     };
 
     let initAccountDetails = async () => {
