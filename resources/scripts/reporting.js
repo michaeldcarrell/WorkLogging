@@ -123,10 +123,5 @@ let controller = (function(UICtrl) {
         initContactTypesDD();
         initTypeAggTable();
         initHourTypesDD();
-        document.getElementById('dd-type-container').getElementsByTagName('button')[0].addEventListener('click', function(event) {
-            let spClass = $('.selectpicker');
-            spClass.selectpicker('render');
-            spClass.selectpicker('refresh');
-        })
     }();
 })(reportTypeUIController);
