@@ -16,7 +16,7 @@ let hourUIController = (function() {
                 hours: document.getElementById('inpt-hours').value,
                 notes: document.getElementById('inpt-notes').value,
                 acceptableInput: function() {
-                    return !(this.hour_type_name === '' ||
+                    return !(this.hour_type_ndme === '' ||
                         this.contact_type_id === '' ||
                         this.hours_completed_on === '' ||
                         this.hours === '');

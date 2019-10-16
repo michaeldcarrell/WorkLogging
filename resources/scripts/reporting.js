@@ -34,8 +34,30 @@ let controller = (function(UICtrl) {
         }
     };
 
+    let addRowsToAggTypes = function(data) {
+        let currentTypeAggTable = document.getElementById('table-type-agg');
+        for (let typesCompleted = 0; typesCompleted < Object.keys(data).length; typesCompleted++) {
+            let row = currentTypeAggTable.insertRow(1);
+            let type = row.insertCell(0);
+            let hours = row.insertCell(1);
+            type.innerHTML = Object.keys(data)[typesCompleted];
+            hours.innerHTML = data[Object.keys(data)[typesCompleted]];
+        }
+    };
 
-    let initTypeAggTable = async (res, req) => {
+    let addRowsToAggContacts = function(data) {
+        let currentContactAggTable = document.getElementById('table-contact-agg');
+        for (let contactsCompleted = 0; contactsCompleted < Object.keys(data).length; contactsCompleted++) {
+            let row = currentContactAggTable.insertRow(1);
+            let type = row.insertCell(0);
+            let hours = row.insertCell(1);
+            type.innerHTML = Object.keys(data)[contactsCompleted];
+            hours.innerHTML = data[Object.keys(data)[contactsCompleted]];
+        }
+    };
+
+
+    let initAggTables = async (res, req) => {
         let url = 'https://hour-logging-api.herokuapp.com/hours/active';
         fetch(url, {
             method: 'get',
@@ -50,6 +72,8 @@ let controller = (function(UICtrl) {
         ).then(function (data) {
             console.log(data);
             let aggedHours = aggHours(data);
+            addRowsToAggTypes(aggedHours.reportedHourTypes);
+            addRowsToAggContacts(aggedHours.reportedHourContact);
             console.log(aggedHours);
         }).catch(function(e){
             console.log(e)
@@ -143,7 +167,7 @@ let controller = (function(UICtrl) {
     let initReportingTable = function() {
         initAccountDetails();
         initContactTypesDD();
-        initTypeAggTable();
+        initAggTables();
         initHourTypesDD();
     }();
 })(reportTypeUIController);
