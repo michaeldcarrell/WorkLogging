@@ -96,10 +96,32 @@ let controller = (function(UICtrl) {
         })
     };
 
+    let initAccountDetails = async () => {
+        let userDropDown = document.getElementById('account-option-dropdown');
+        let url = 'https://hour-logging-api.herokuapp.com/users/me';
+        fetch(url, {
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + document.cookie,
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Access-Control-Allow-Credentials': 'true'
+            }
+        }).then(
+            (res) => res.json()
+        ).then(function(data) {
+            userDropDown.innerHTML = data['username'];
+        }).catch(function(e) {
+            console.log(e);
+            userDropDown.innerHTML = '';
+        })
+    };
+
 
     let initReportingTable = function() {
+        initAccountDetails();
         initContactTypesDD();
         initTypeAggTable();
         initHourTypesDD();
-    }()
+    }();
 })(reportTypeUIController);
