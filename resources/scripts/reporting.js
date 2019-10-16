@@ -69,7 +69,12 @@ let controller = (function(UICtrl) {
                 option.value = newOption['_id'];
                 dropDown.appendChild(option);
             }
-        })
+        });
+        $('.selectpicker').selectpicker('render'); //render first so the getElement has something to get
+        document.getElementById('dd-contact-container').getElementsByTagName('button')[0].addEventListener('click', function(event) {
+            let spClass = $('.selectpicker');
+            spClass.selectpicker('refresh');
+        });
     };
 
     let initHourTypesDD = async () => {
