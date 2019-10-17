@@ -2,6 +2,9 @@ if (document.cookie === '') {
     document.location.href = 'login'
 }
 
+$('.selectpicker').selectpicker('render'); //render first so the getElement has something to get
+
+
 let reportTypeUIController = (function() {
     return {
         today: function() {
