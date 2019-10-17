@@ -200,6 +200,9 @@ let controller = (function(UICtrl) {
         let contactTable = document.getElementById('table-contact-agg');
         let typeTable = document.getElementById('table-type-agg');
         let inputs = UICtrl.getReportingInputs();
+        if (inputs.contacts === ["Select Contacts"]) {
+            inputs.contacts = []
+        }
         console.log(JSON.stringify(inputs));
         let url = 'https://hour-logging-api.herokuapp.com/report';
         fetch(url, {
@@ -209,10 +212,12 @@ let controller = (function(UICtrl) {
                 'Authorization': 'Bearer ' + document.cookie,
                 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
                 'Access-Control-Allow-Credentials': 'true'
-            }
+            },
+            body: JSON.stringify(inputs)
         }).then(
             (res) => res.json()
         ).then(function(data) {
+            console.log(data);
         }).catch(function(e) {
         });
 
