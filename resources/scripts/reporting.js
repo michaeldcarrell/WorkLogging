@@ -2,10 +2,8 @@ if (document.cookie === '') {
     document.location.href = 'login'
 }
 
-$('.selectpicker').selectpicker('render'); //render first so the getElement has something to get
-
-
 let reportTypeUIController = (function() {
+    $('.selectpicker').selectpicker('render'); //render first so the getElement has something to get
     return {
         today: function() {
             let current = new Date();
