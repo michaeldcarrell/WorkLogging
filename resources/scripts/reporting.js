@@ -3,14 +3,42 @@ if (document.cookie === '') {
 }
 
 let reportTypeUIController = (function() {
+    return {
+        today: function() {
+            let current = new Date();
+            let dd = String(current.getDate()).padStart(2, '0');
+            let mm = String(current.getMonth() + 1).padStart(2, '0'); //January is 0!
+            let yyyy = current.getFullYear();
+
+            return yyyy + '-' + mm + '-' + dd;
+        },
+        formatDate: function(ISODate) {
+            let dd = String(ISODate.getDate()).padStart(2, '0');
+            let mm = String(ISODate.getMonth() + 1).padStart(2, '0'); //January is 0!
+            let yyyy = ISODate.getFullYear();
+
+            return yyyy + '-' + mm + '-' + dd;
+        },
+        getReportingInputs: {
+            types: document.getElementById('selected-types').innerHTML.split(', '),
+            contacts: document.getElementById('selected-contacts').innerHTML.split(', '),
+            afterDate: document.getElementById('inpt-from-date').,
+            beforeDate:
+        }
+    }
 })();
 
 let controller = (function(UICtrl) {
 
     let aggHours = function(data) {
+
         let reportedHourTypes = {};
         let reportedHourContact = {};
+        let minDate = new Date();
         for (let hoursAgged = 0; hoursAgged < data.length; hoursAgged++) {
+            if (data[hoursAgged]['hours_completed_on'] < minDate) {
+                minDate = data[hoursAgged]['hours_completed_on']
+            }
             if (reportedHourTypes.hasOwnProperty(data[hoursAgged]['hour_type_name'])) {
                 reportedHourTypes[data[hoursAgged]['hour_type_name']] += data[hoursAgged]['hours'];
             } else {
@@ -30,7 +58,8 @@ let controller = (function(UICtrl) {
         }
         return {
             reportedHourTypes: reportedHourTypes,
-            reportedHourContact: reportedHourContact
+            reportedHourContact: reportedHourContact,
+            minDate: minDate
         }
     };
 
@@ -74,6 +103,7 @@ let controller = (function(UICtrl) {
             let aggedHours = aggHours(data);
             addRowsToAggTypes(aggedHours.reportedHourTypes);
             addRowsToAggContacts(aggedHours.reportedHourContact);
+            document.getElementById('inpt-from-date').value = UICtrl.formatDate(aggedHours.minDate);
             console.log(aggedHours);
         }).catch(function(e){
             console.log(e)
@@ -103,7 +133,9 @@ let controller = (function(UICtrl) {
             }
         });
         $('.selectpicker').selectpicker('render'); //render first so the getElement has something to get
-        document.getElementById('dd-contact-container').getElementsByTagName('button')[0].addEventListener('click', function(event) {
+        let ddButton = document.getElementById('dd-contact-container').getElementsByTagName('button')[0];
+        ddButton.getElementsByClassName('filter-option-inner-inner')[0].id = 'selected-contacts';
+        ddButton.addEventListener('click', function(event) {
             let spClass = $('.selectpicker');
             spClass.selectpicker('refresh');
         });
@@ -132,7 +164,9 @@ let controller = (function(UICtrl) {
             }
         });
         $('.selectpicker').selectpicker('render'); //render first so the getElement has something to get
-        document.getElementById('dd-type-container').getElementsByTagName('button')[0].addEventListener('click', function(event) {
+        let ddButton = document.getElementById('dd-type-container').getElementsByTagName('button')[0];
+        ddButton.getElementsByClassName('filter-option-inner-inner')[0].id = 'selected-types';
+        ddButton.addEventListener('click', function(event) {
             let spClass = $('.selectpicker');
             spClass.selectpicker('refresh');
         });
@@ -160,14 +194,43 @@ let controller = (function(UICtrl) {
     };
 
     document.getElementById('filter-submit').addEventListener('click', function (event) {
-        
+        let contactTable = document.getElementById('table-contact-agg');
+        let typeTable = document.getElementById('table-type-agg');
+        let url = 'https://hour-logging-api.herokuapp.com/report';
+        fetch(url, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + document.cookie,
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Access-Control-Allow-Credentials': 'true'
+            }
+        }).then(
+            (res) => res.json()
+        ).then(function(data) {
+        }).catch(function(e) {
+        });
+
+        //delete all current rows from tables
+        for (let typeRowsRemoved = 1; typeRowsRemoved < typeTable.rows.length; typeRowsRemoved++) {
+            //start at 1 so headers don't get removed
+            typeTable.deleteRow(typeRowsRemoved);
+        }
+        for (let contactRowsRemoved = 1; contactRowsRemoved < contactTable.rows.length; contactRowsRemoved++) {
+            contactTable.deleteRow(contactRowsRemoved);
+        }
+
     });
 
+    let setInptDate = function() {
+        document.getElementById('inpt-to-date').value = UICtrl.today();
+    };
 
     let initReportingTable = function() {
         initAccountDetails();
         initContactTypesDD();
         initAggTables();
         initHourTypesDD();
+        setInptDate();
     }();
 })(reportTypeUIController);
