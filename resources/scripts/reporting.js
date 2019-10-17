@@ -236,6 +236,29 @@ let controller = (function(UICtrl) {
         });
     });
 
+    let logOutUser = function() {
+        let url = 'https://hour-logging-api.herokuapp.com/users/logout';
+        fetch(url, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + document.cookie,
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Access-Control-Allow-Credentials': 'true'
+            }
+        }).then(function(res) {
+            console.log(res.json())
+        }).catch(function(e) {
+            console.log(e)
+        });
+    };
+
+    document.getElementById('account-action-logout').addEventListener('click', function(event) {
+        logOutUser();
+        document.cookie = '';
+        document.location.href = 'login';
+    });
+
     let setInptDate = function() {
         document.getElementById('inpt-to-date').value = UICtrl.today();
     };
