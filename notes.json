@@ -24,5 +24,19 @@
   "pagination": {
     "idea": "user should be able to sort hours by pages which limit the ui to a static (non-scrolling) page",
     "implementation": "user will have the option of jumping pages < 1 2 3 ... [x] > in order to do this they just also have the functionality to search by type, keyword note, date ranges number of hours and contact type so they could edit hours in the distant past more easily"
+  },
+  "sharing_hours" : {
+    "email": {
+      "idea": "users should have the ability (through the reporting page) to email a report of their hours to either themselves or someone else",
+      "implementation": [
+        "when sending have the server creates a pdf (form style pdf) which can contain as many pages as need be",
+        "this pdf would be able to be sent to and end recipient and that recipient can then virtually sign the pdf",
+        "stating the sender has completed those hours and the pdf will be sent back to the sender after signed",
+        "this copy can be stored in mongo allowing the user to retrieve it at a later date"
+      ]
+    },
+    "printing": {
+      "idea": "users should be able to print off a report they have created from the reporting page with the option of adding a signature field"
+    }
   }
 }
