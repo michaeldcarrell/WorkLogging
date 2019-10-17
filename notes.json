@@ -1,5 +1,8 @@
 {
-  "modal": "When logging in modal appears as if login failed",
+  "login": {
+    "problem": "Login can take time if the server hasn't be actively processing requests, it has to wake up",
+    "solution": "add feature on login page where loading wheel appears and page becomes unresponsive until the request completes and user is either logged in or denied login"
+  },
   "logout": {
     "idea": "system logs user ip out after x amount of time",
     "implementation": "Node takes care of logging the user out but nothing informs the user if they were to leave the page open if user tries to perform an action when logged out it should open a modal informing them of the logout/timeout and on focus shift or closing the modal it should redirect to the login screen",
@@ -11,18 +14,13 @@
       "email": "email sends when sign up to verify user this creates a temp bearer token which is active until the user logs in for the first time via link provided"
     }
   },
-  "reporting": {
-    "idea": "allow user to print, email and/or analyze data from their account"
-  },
-  "edit_previously_entered_rows": {
-    "idea": "When updating previous rows data is not being push to the ui",
-    "reason": "UI is not waiting for the API response to finish before submitting to the UI",
-    "fix": "?"
-  },
   "sorting_pages": {
     "idea": "Let users sort pages by entries in columns"
   },
-  "user_entered_decimal_hours": "when user enters decimals for hours should show up as 0.15 instead of .15",
+  "user_entered_decimal_hours": {
+    "problem": "when user enters decimals for hours should show up as 0.15 instead of .15",
+    "fix": "low pri because as soon as it is returned back or user refreshes the page this gets fixed"
+  },
   "pagination": {
     "idea": "user should be able to sort hours by pages which limit the ui to a static (non-scrolling) page",
     "implementation": "user will have the option of jumping pages < 1 2 3 ... [x] > in order to do this they just also have the functionality to search by type, keyword note, date ranges number of hours and contact type so they could edit hours in the distant past more easily"
