@@ -210,7 +210,7 @@ let controller = (function(UICtrl) {
         }
         console.log(inputs);
         console.log(JSON.stringify(inputs));
-        let url = 'https://hour-logging-api.herokuapp.com/report';
+        let url = 'https://hour-logging-api.herokuapp.com/reporting';
         fetch(url, {
             method: 'post',
             headers: {
