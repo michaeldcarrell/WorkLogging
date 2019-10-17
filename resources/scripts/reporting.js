@@ -228,6 +228,9 @@ let controller = (function(UICtrl) {
             (res) => res.json()
         ).then(function(data) {
             console.log(data);
+            let aggedHours = aggHours(data);
+            addRowsToAggTypes(aggedHours.reportedHourTypes);
+            addRowsToAggContacts(aggedHours.reportedHourContact);
         }).catch(function(e) {
             console.log(e);
         });
