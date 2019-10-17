@@ -195,6 +195,8 @@ let controller = (function(UICtrl) {
     };
 
     document.getElementById('filter-submit').addEventListener('click', function (event) {
+        let contactTable = document.getElementById('table-contact-agg');
+        let typeTable = document.getElementById('table-type-agg');
         //delete all current rows from tables
         for (let typeRowsRemoved = 1; typeRowsRemoved <= typeTable.rows.length; typeRowsRemoved++) {
             //start at 1 so headers don't get removed
@@ -203,8 +205,6 @@ let controller = (function(UICtrl) {
         for (let contactRowsRemoved = 1; contactRowsRemoved <= contactTable.rows.length; contactRowsRemoved++) {
             contactTable.deleteRow(contactRowsRemoved);
         }
-        let contactTable = document.getElementById('table-contact-agg');
-        let typeTable = document.getElementById('table-type-agg');
         let inputs = UICtrl.getReportingInputs();
         if (inputs.contacts[0] === "Select Contact") {
             inputs.contacts = []
