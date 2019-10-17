@@ -22,8 +22,8 @@ let reportTypeUIController = (function() {
         getReportingInputs: {
             types: document.getElementById('selected-types').innerHTML.split(', '),
             contacts: document.getElementById('selected-contacts').innerHTML.split(', '),
-            afterDate: document.getElementById('inpt-from-date').,
-            beforeDate:
+            afterDate: document.getElementById('inpt-from-date').value,
+            beforeDate: document.getElementById('inpt-to-date').value
         }
     }
 })();
