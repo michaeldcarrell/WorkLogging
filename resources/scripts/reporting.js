@@ -20,11 +20,13 @@ let reportTypeUIController = (function() {
 
             return yyyy + '-' + mm + '-' + dd;
         },
-        getReportingInputs: {
-            types: document.getElementById('selected-types').innerHTML.split(', '),
-            contacts: document.getElementById('selected-contacts').innerHTML.split(', '),
-            afterDate: document.getElementById('inpt-from-date').value,
-            beforeDate: document.getElementById('inpt-to-date').value
+        getReportingInputs: function() {
+            return {
+                types: document.getElementById('selected-types').innerHTML.split(', '),
+                contacts: document.getElementById('selected-contacts').innerHTML.split(', '),
+                afterDate: document.getElementById('inpt-from-date').value,
+                beforeDate: document.getElementById('inpt-to-date').value
+            }
         }
     }
 })();
@@ -197,6 +199,8 @@ let controller = (function(UICtrl) {
     document.getElementById('filter-submit').addEventListener('click', function (event) {
         let contactTable = document.getElementById('table-contact-agg');
         let typeTable = document.getElementById('table-type-agg');
+        let inputs = UICtrl.getReportingInputs();
+        console.log(inputs);
         let url = 'https://hour-logging-api.herokuapp.com/report';
         fetch(url, {
             method: 'post',
