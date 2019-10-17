@@ -202,7 +202,13 @@ let controller = (function(UICtrl) {
         let inputs = UICtrl.getReportingInputs();
         if (inputs.contacts === ["Select Contacts"]) {
             inputs.contacts = []
+        } else {
+            for (let pos = inputs.contacts.length - 1; pos >= 0; pos--) {
+                inputs.contacts[pos] = inputs.contacts[pos].replace('Direct', '5d9cb2333e1f8332a448c60b');
+                inputs.contacts[pos] = inputs.contacts[pos].replace('Indirect', '5d9cb2373e1f8332a448c60c');
+            }
         }
+        console.log(inputs);
         console.log(JSON.stringify(inputs));
         let url = 'https://hour-logging-api.herokuapp.com/report';
         fetch(url, {
