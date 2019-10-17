@@ -102,12 +102,10 @@ let controller = (function(UICtrl) {
         }).then(
             (res) => res.json()
         ).then(function (data) {
-            console.log(data);
             let aggedHours = aggHours(data);
             addRowsToAggTypes(aggedHours.reportedHourTypes);
             addRowsToAggContacts(aggedHours.reportedHourContact);
             document.getElementById('inpt-from-date').value = UICtrl.formatDate(aggedHours.minDate);
-            console.log(aggedHours);
         }).catch(function(e){
             console.log(e)
         })
@@ -197,6 +195,14 @@ let controller = (function(UICtrl) {
     };
 
     document.getElementById('filter-submit').addEventListener('click', function (event) {
+        //delete all current rows from tables
+        for (let typeRowsRemoved = 1; typeRowsRemoved <= typeTable.rows.length; typeRowsRemoved++) {
+            //start at 1 so headers don't get removed
+            typeTable.deleteRow(typeRowsRemoved);
+        }
+        for (let contactRowsRemoved = 1; contactRowsRemoved <= contactTable.rows.length; contactRowsRemoved++) {
+            contactTable.deleteRow(contactRowsRemoved);
+        }
         let contactTable = document.getElementById('table-contact-agg');
         let typeTable = document.getElementById('table-type-agg');
         let inputs = UICtrl.getReportingInputs();
@@ -208,8 +214,6 @@ let controller = (function(UICtrl) {
                 inputs.contacts[pos] = inputs.contacts[pos].replace('Indirect', '5d9cb2373e1f8332a448c60c');
             }
         }
-        console.log(inputs);
-        console.log(JSON.stringify(inputs));
         let url = 'https://hour-logging-api.herokuapp.com/reporting';
         fetch(url, {
             method: 'post',
@@ -225,17 +229,8 @@ let controller = (function(UICtrl) {
         ).then(function(data) {
             console.log(data);
         }).catch(function(e) {
+            console.log(e);
         });
-
-        //delete all current rows from tables
-        for (let typeRowsRemoved = 1; typeRowsRemoved < typeTable.rows.length; typeRowsRemoved++) {
-            //start at 1 so headers don't get removed
-            typeTable.deleteRow(typeRowsRemoved);
-        }
-        for (let contactRowsRemoved = 1; contactRowsRemoved < contactTable.rows.length; contactRowsRemoved++) {
-            contactTable.deleteRow(contactRowsRemoved);
-        }
-
     });
 
     let setInptDate = function() {
