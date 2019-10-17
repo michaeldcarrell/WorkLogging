@@ -200,7 +200,7 @@ let controller = (function(UICtrl) {
         let contactTable = document.getElementById('table-contact-agg');
         let typeTable = document.getElementById('table-type-agg');
         let inputs = UICtrl.getReportingInputs();
-        console.log(inputs);
+        console.log(JSON.stringify(inputs));
         let url = 'https://hour-logging-api.herokuapp.com/report';
         fetch(url, {
             method: 'post',
