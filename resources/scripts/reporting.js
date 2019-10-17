@@ -200,7 +200,7 @@ let controller = (function(UICtrl) {
         let contactTable = document.getElementById('table-contact-agg');
         let typeTable = document.getElementById('table-type-agg');
         let inputs = UICtrl.getReportingInputs();
-        if (inputs.contacts === ["Select Contacts"]) {
+        if (inputs.contacts === ["Select Contact"]) {
             inputs.contacts = []
         } else {
             for (let pos = inputs.contacts.length - 1; pos >= 0; pos--) {
