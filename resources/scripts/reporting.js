@@ -198,11 +198,11 @@ let controller = (function(UICtrl) {
         let contactTable = document.getElementById('table-contact-agg');
         let typeTable = document.getElementById('table-type-agg');
         //delete all current rows from tables
-        for (let typeRowsExist = typeTable.rows.length; typeRowsExist > 0; typeRowsExist--) {
+        for (let typeRowsExist = typeTable.rows.length - 1; typeRowsExist > 0; typeRowsExist--) {
             //gt 0 so it doesn't delete the headers
             typeTable.deleteRow(typeRowsExist);
         }
-        for (let contactRowsExist = contactTable.rows.length; contactRowsExist > 0; contactRowsExist--) {
+        for (let contactRowsExist = contactTable.rows.length - 1; contactRowsExist > 0; contactRowsExist--) {
             contactTable.deleteRow(contactRowsExist);
         }
         let inputs = UICtrl.getReportingInputs();
