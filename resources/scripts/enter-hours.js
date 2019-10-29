@@ -270,7 +270,7 @@ let hourController = (function(UICtrl) {
                 'Access-Control-Allow-Credentials': 'true'
             }
         }).then((res) => {
-            console.log(res);
+            console.log(res.status);
             res.json();
         }).then(function (data) {
             console.log(data);
