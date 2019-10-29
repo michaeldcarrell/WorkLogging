@@ -269,9 +269,10 @@ let hourController = (function(UICtrl) {
                 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
                 'Access-Control-Allow-Credentials': 'true'
             }
-        }).then(
-            (res) => res.json()
-        ).then(function (data) {
+        }).then((res) => {
+            console.log(res);
+            res.json();
+        }).then(function (data) {
             console.log(data);
             for (let rows_built = 0; rows_built < data.length; rows_built++) {
                 UICtrl.insertNewRowsHours(data[rows_built])
