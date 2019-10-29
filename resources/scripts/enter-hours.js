@@ -272,6 +272,7 @@ let hourController = (function(UICtrl) {
         }).then(
             (res) => res.json()
         ).then(function (data) {
+            console.log(data.status);
             for (let rows_built = 0; rows_built < data.length; rows_built++) {
                 UICtrl.insertNewRowsHours(data[rows_built])
             }
