@@ -240,6 +240,7 @@ let controller = (function(UICtrl) {
             console.log(aggedHours);
             addRowsToAggTypes(aggedHours.reportedHourTypes);
             addRowsToAggContacts(aggedHours.reportedHourContact);
+            addTotal(aggedHours.reportedHourContact);
         }).catch(function(e) {
             console.log(e);
         });
