@@ -1,5 +1,9 @@
+let denyLogin = function() {
+    document.cookie = '';
+    // document.location.href = 'login';
+};
 if (document.cookie === '') {
-    document.location.href = 'login'
+    denyLogin()
 }
 
 let hourUIController = (function() {
@@ -165,7 +169,6 @@ let hourController = (function(UICtrl) {
         }).then(
             (res) => res.json()
         ).then(function(data) {
-            console.log(data);
             UICtrl.insertNewRowsHours(data);
         }).catch(function(e) {
             console.log(e)
@@ -270,7 +273,12 @@ let hourController = (function(UICtrl) {
                 'Access-Control-Allow-Credentials': 'true'
             }
         }).then((res) => {
-            console.log(res.status);
+            let status = res.status;
+            console.log(status);
+            console.log(status.slice(0, 1));
+            if (res.status === 401) {
+                denyLogin()
+            }
             res.json();
         }).then(function (data) {
             console.log(data);
