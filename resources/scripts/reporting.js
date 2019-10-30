@@ -268,6 +268,7 @@ let controller = (function(UICtrl) {
         let hours = document.getElementsByClassName('hours');
         let hoursSum = 0;
         console.log(hoursSum);
+        console.log(hours);
         for (let i = 0; i < hours.length; i++) {
             console.log(Number(hours[i].innerHTML));
             hoursSum += Number(hours[i].innerHTML);
