@@ -275,10 +275,10 @@ let hourController = (function(UICtrl) {
         }).then((res) => {
             let status = res.status;
             console.log(status);
-            console.log(status.slice(0, 1));
             if (res.status === 401) {
                 denyLogin()
             }
+            console.log(status.toString().slice(0, 1));
             res.json();
         }).then(function (data) {
             console.log(data);
