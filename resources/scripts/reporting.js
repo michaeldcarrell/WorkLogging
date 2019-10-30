@@ -230,6 +230,7 @@ let controller = (function(UICtrl) {
         ).then(function(data) {
             console.log(data);
             let aggedHours = aggHours(data);
+            console.log(aggedHours);
             addRowsToAggTypes(aggedHours.reportedHourTypes);
             addRowsToAggContacts(aggedHours.reportedHourContact);
         }).catch(function(e) {
@@ -267,8 +268,6 @@ let controller = (function(UICtrl) {
     let initTotalHours = function() {
         let hours = document.getElementsByClassName('hours');
         let hoursSum = 0;
-        console.log(hoursSum);
-        console.log(hours);
         for (let i = 0; i < hours.length; i++) {
             console.log(Number(hours[i].innerHTML));
             hoursSum += Number(hours[i].innerHTML);
