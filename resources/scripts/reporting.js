@@ -267,8 +267,11 @@ let controller = (function(UICtrl) {
     let initTotalHours = function() {
         let hours = document.getElementsByClassName('hours');
         let hoursSum = 0;
+        console.log(hoursSum);
         for (let i = 0; i < hours.length; i++) {
-            hoursSum += Number(hours[i].innerHTML)
+            console.log(Number(hours[i].innerHTML));
+            hoursSum += Number(hours[i].innerHTML);
+            console.log(hoursSum);
         }
         document.getElementById('total-hours').innerHTML = hoursSum.toString();
     };
