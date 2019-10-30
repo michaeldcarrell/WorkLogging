@@ -59,7 +59,6 @@ let controller = (function(UICtrl) {
                 }
             }
         }
-        console.log(reportedHourContact);
         return {
             reportedHourTypes: reportedHourTypes,
             reportedHourContact: reportedHourContact,
@@ -265,13 +264,10 @@ let controller = (function(UICtrl) {
         document.getElementById('inpt-to-date').value = UICtrl.today();
     };
 
-    let initTotalHours = function() {
-        let hours = document.getElementsByClassName('hours');
+    let initTotalHours = function(hoursData) {
         let hoursSum = 0;
-        for (let i = 0; i < hours.length; i++) {
-            console.log(Number(hours[i].innerHTML));
-            hoursSum += Number(hours[i].innerHTML);
-            console.log(hoursSum);
+        for (key in hoursData) {
+            hoursSum += hoursData[key]
         }
         document.getElementById('total-hours').innerHTML = hoursSum.toString();
     };
