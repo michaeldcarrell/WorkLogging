@@ -90,10 +90,12 @@ let controller = (function(UICtrl) {
     };
 
     let addTotal = function(hoursData) {
+        console.log(hoursData);
         let hoursSum = 0;
         for (key in hoursData) {
             hoursSum += hoursData[key]
         }
+        console.log(hoursSum);
         document.getElementById('total-hours').innerHTML = hoursSum.toString();
     };
 
