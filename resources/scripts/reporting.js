@@ -85,6 +85,7 @@ let controller = (function(UICtrl) {
             let hours = row.insertCell(1);
             type.innerHTML = Object.keys(data)[contactsCompleted];
             hours.innerHTML = data[Object.keys(data)[contactsCompleted]];
+            hours.classList.add('hours');
         }
     };
 
@@ -263,11 +264,21 @@ let controller = (function(UICtrl) {
         document.getElementById('inpt-to-date').value = UICtrl.today();
     };
 
+    let initTotalHours = function() {
+        let hours = document.getElementsByClassName('hours');
+        let hoursSum = 0;
+        for (let i = 0; i < hours.length; i++) {
+            hoursSum += Number(hours[i].innerHTML)
+        }
+        document.getElementById('total-hours').innerHTML = hoursSum.toString();
+    };
+
     let initReportingTable = function() {
         initAccountDetails();
         initContactTypesDD();
         initAggTables();
         initHourTypesDD();
         setInptDate();
+        initTotalHours();
     }();
 })(reportTypeUIController);
