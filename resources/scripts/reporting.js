@@ -59,6 +59,7 @@ let controller = (function(UICtrl) {
                 }
             }
         }
+        console.log(reportedHourContact);
         return {
             reportedHourTypes: reportedHourTypes,
             reportedHourContact: reportedHourContact,
@@ -228,7 +229,6 @@ let controller = (function(UICtrl) {
         }).then(
             (res) => res.json()
         ).then(function(data) {
-            console.log(data);
             let aggedHours = aggHours(data);
             console.log(aggedHours);
             addRowsToAggTypes(aggedHours.reportedHourTypes);
