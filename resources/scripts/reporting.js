@@ -77,6 +77,14 @@ let controller = (function(UICtrl) {
         }
     };
 
+    let addTotal = function(hoursData) {
+        let hoursSum = 0;
+        for (key in hoursData) {
+            hoursSum += hoursData[key]
+        }
+        return hoursSum
+    };
+
     let addRowsToAggContacts = function(data) {
         let currentContactAggTable = document.getElementById('table-contact-agg');
         for (let contactsCompleted = 0; contactsCompleted < Object.keys(data).length; contactsCompleted++) {
@@ -87,16 +95,12 @@ let controller = (function(UICtrl) {
             hours.innerHTML = data[Object.keys(data)[contactsCompleted]];
             hours.classList.add('hours');
         }
-    };
-
-    let addTotal = function(hoursData) {
-        console.log(hoursData);
-        let hoursSum = 0;
-        for (key in hoursData) {
-            hoursSum += hoursData[key]
-        }
-        console.log(hoursSum);
-        document.getElementById('total-hours').innerHTML = hoursSum.toString();
+        // Insert Totals Row
+        let row = currentContactAggTable.insertRow(currentContactAggTable.getElementsByTagName('tr').length);
+        let type = row.insertCell(0);
+        let hours = row.insertCell(1);
+        type.innerHTML = "Total";
+        hours.innerHTML = addTotal(data).toString();
     };
 
     let initAggTables = async (res, req) => {
