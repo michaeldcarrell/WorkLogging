@@ -89,6 +89,13 @@ let controller = (function(UICtrl) {
         }
     };
 
+    let addTotal = function(hoursData) {
+        let hoursSum = 0;
+        for (key in hoursData) {
+            hoursSum += hoursData[key]
+        }
+        document.getElementById('total-hours').innerHTML = hoursSum.toString();
+    };
 
     let initAggTables = async (res, req) => {
         let url = 'https://hour-logging-api.herokuapp.com/hours/active';
@@ -106,6 +113,7 @@ let controller = (function(UICtrl) {
             let aggedHours = aggHours(data);
             addRowsToAggTypes(aggedHours.reportedHourTypes);
             addRowsToAggContacts(aggedHours.reportedHourContact);
+            addTotal(aggedHours.reportedHourContact);
             document.getElementById('inpt-from-date').value = UICtrl.formatDate(aggedHours.minDate);
         }).catch(function(e){
             console.log(e)
@@ -264,20 +272,12 @@ let controller = (function(UICtrl) {
         document.getElementById('inpt-to-date').value = UICtrl.today();
     };
 
-    let initTotalHours = function(hoursData) {
-        let hoursSum = 0;
-        for (key in hoursData) {
-            hoursSum += hoursData[key]
-        }
-        document.getElementById('total-hours').innerHTML = hoursSum.toString();
-    };
-
     let initReportingTable = function() {
         initAccountDetails();
         initContactTypesDD();
         initAggTables();
         initHourTypesDD();
         setInptDate();
-        initTotalHours();
+        initTotalHours(aggHours());
     }();
 })(reportTypeUIController);
