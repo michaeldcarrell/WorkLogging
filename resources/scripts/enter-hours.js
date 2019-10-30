@@ -273,12 +273,9 @@ let hourController = (function(UICtrl) {
                 'Access-Control-Allow-Credentials': 'true'
             }
         }).then((res) => {
-            let status = res.status;
-            console.log(status);
-            console.log(res.status.toString().slice(0, 1) !== '2');
-            if (res.status.toString().slice(0, 1) !== '2') {
-                denyLogin();
-            }
+            // if (res.status.toString().slice(0, 1) !== '2') {
+            //     denyLogin();
+            // }
             res.json();
         }).then(function (data) {
             console.log(data);
