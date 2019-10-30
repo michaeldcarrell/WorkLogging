@@ -272,12 +272,12 @@ let hourController = (function(UICtrl) {
                 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
                 'Access-Control-Allow-Credentials': 'true'
             }
-        }).then((res) => {
+        }).then((res) =>
             // if (res.status.toString().slice(0, 1) !== '2') {
             //     denyLogin();
             // }
-            res.json();
-        }).then(function (data) {
+            res.json()
+        ).then(function (data) {
             console.log(data);
             for (let rows_built = 0; rows_built < data.length; rows_built++) {
                 UICtrl.insertNewRowsHours(data[rows_built])
