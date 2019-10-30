@@ -279,6 +279,5 @@ let controller = (function(UICtrl) {
         initAggTables();
         initHourTypesDD();
         setInptDate();
-        initTotalHours(aggHours());
     }();
 })(reportTypeUIController);
