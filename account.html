@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../HannaWorkLogging/TrifectaSolution/resources/css/style.css">
+    <meta charset="UTF-8">
+    <title>Account Details</title>
+</head>
+<!--<script src="resources/scripts/validate-login.js"></script>-->
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Work Logging</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="reporting.html">Reporting</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="enter-hours.html">Add Hours</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="enter-hour-types.html">Add Hour Types</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="account-option-dropdown"></button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Account</a>
+                        <a class="dropdown-item" href="#">Feedback</a>
+                        <div class="dropdown-divider"></div>
+                        <div class="logout-container">
+                            <button type="button" class="btn btn-danger dropdown-item account-action-logout" id="account-action-logout">
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid form-container">
+        <div class="row">
+            <div class="col-10">
+<!--                <div class="card">-->
+<!--                    <div class="card-body">-->
+<!--                        <h5 class="card-title">Card title</h5>-->
+<!--                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+<!--                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--                        <a href="#" class="card-link">Card link</a>-->
+<!--                        <a href="#" class="card-link">Another link</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Your Account</h5>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-10">
+                                        <h6 class="card-subtitle mb-2 text-muted">Personal Info</h6>
+                                        <p class="card-text">Michael Carrell<br>michaeldcarrell@gmail.com</p>
+                                    </div>
+                                    <a href="#" class="card-link">Update Info</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-10">
+                                        <h6 class="card-subtitle mb-2 text-muted">Password</h6>
+                                        <p class="card-text">••••••••••••••</p>
+                                    </div>
+                                    <a href="#" class="card-link">Change Password</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-10">
+                                        <h6 class="card-subtitle mb-2 text-muted">Logout</h6>
+                                        <button type="button" class="btn btn-dark" >Logout</button>
+                                        <button type="button" class="btn btn-danger" >Logout All</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!--<script src="resources/scripts/enter-hours.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>
