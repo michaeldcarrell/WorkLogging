@@ -15,7 +15,7 @@ let loginUIController = (function() {
 
 let controller = (function(loginCtrl, UICtrl) {
 
-    console.log('2019.12.27.1');
+    console.log('2019.12.27.2');
 
     let spinInit = function() {
         let spinner = new Spinner(opts).spin(target);
