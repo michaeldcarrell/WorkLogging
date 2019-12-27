@@ -15,7 +15,7 @@ let loginUIController = (function() {
 
 let controller = (function(loginCtrl, UICtrl) {
 
-    console.log('2019.12.27.2');
+    console.log('2019.12.27.3');
 
     let spinInit = function() {
         let spinner = new Spinner(opts).spin(target);
@@ -46,11 +46,15 @@ let controller = (function(loginCtrl, UICtrl) {
                     body: await res.json()
                 }
         }).then(async (data) => {
-            console.log(data.status);
-            document.cookie = data.body['token'];
-            console.log(document.cookie);
-            // document.location.href = 'enter-hours'
-            spinStop(activeSpinner);
+            if (data.status === 200) {
+                document.cookie = data.body['token'];
+                spinStop(activeSpinner);
+                document.location.href = 'enter-hours'
+            } else {
+                console.log('Login Failed');
+                spinStop(activeSpinner);
+                $('#loginFailedModal').modal('toggle');
+            }
         }).catch(function(e) {
             console.log('Login Failed');
             spinStop(activeSpinner);
