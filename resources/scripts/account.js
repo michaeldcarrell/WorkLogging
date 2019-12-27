@@ -12,7 +12,7 @@ let accountUIController = (function() {
 
 let hourController = (function(UICtrl) {
 
-    console.log('2019.12.27.1');
+    console.log('2019.12.27.2');
 
     let logOutUser = () => {
         let url = 'https://hour-logging-api.herokuapp.com/users/logout';
