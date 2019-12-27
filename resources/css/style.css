@@ -79,3 +79,7 @@
     opacity: 0.9;
     display: none;
 }
+
+#main-card {
+    margin-top: 10px;
+}
